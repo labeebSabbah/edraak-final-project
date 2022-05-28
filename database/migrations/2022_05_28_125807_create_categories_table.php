@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->string("name")->unique();
+            $table->boolean("is_main");
         });
     }
 

@@ -1,6 +1,6 @@
 <?php 
 use Illuminate\Support\Facades\DB;
-$items = DB::table('categories')->where('is_main', true)->value('name');
+$items = DB::table('categories')->select('*')->where('is_main', true)->value('name');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@ $items = DB::table('categories')->where('is_main', true)->value('name');
     <h2>Main Categories</h2>
     <form action="/create" method="get">
         <input type="text" name="name" placeholder="Add Product">
-        <button type="submit" name="main" value="1">Add</button>
+        <button type="submit" name="main" value="1">Add</button> <br>
         <?php 
             print_r($items);
         ?>

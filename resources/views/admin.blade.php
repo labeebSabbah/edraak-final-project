@@ -19,7 +19,8 @@ $items = DB::select('SELECT * FROM categories WHERE is_main = true');
     <ol>
     <?php 
             foreach ($items as $item) {
-                echo "<li name='{$item[name]}'>{$item[name]}</li>";
+                $name = $item['name'];
+                echo "<li name='{$name}'>{$name}</li>";
             }
         ?>
     </ol>

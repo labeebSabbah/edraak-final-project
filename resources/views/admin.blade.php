@@ -54,7 +54,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                     error += mainName.value + " Already Exists";
                     if (error) {
                         e.preventDefault();
-                        console.log(error);
+                        window.alert(error);
                     }
                 }
             }
@@ -66,7 +66,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                     error += secName.value + " Already Exists";
                     if (error) {
                         e.preventDefault();
-                        console.log(error);
+                        window.alert(error);
                     }
                 }
             }

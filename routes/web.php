@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
+    return view('admin');
     if(Auth::check()) {
     $name = auth()->user()->name;
     if (DB::table('users')->where('name', $name)->value('is_admin')) {
@@ -23,12 +24,14 @@ Route::get('/', function () {
     }
     }
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/nothing', function () {return view('nothing');});
+
+Route::post('/create', [CategoriesController::class, 'create']);
  
 require __DIR__.'/auth.php';

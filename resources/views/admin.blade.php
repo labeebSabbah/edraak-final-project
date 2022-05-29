@@ -1,3 +1,7 @@
+<?php 
+use Illuminate\Support\Facades\DB;
+$items = DB::table('categories')->where('is_main', false)->value('name');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +11,13 @@
     <title>Admin</title>
 </head>
 <body>
+    <h2>Main Categories</h2>
     <form action="/create" method="post">
         <input type="text" name="name" placeholder="Add Product">
+        <button type="submit" name="main" value="1">Add</button>
+        <?php 
+            print_r($items);
+        ?>
     </form>
 </body>
 </html>

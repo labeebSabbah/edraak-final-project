@@ -59,6 +59,8 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                     if (error) {
                         e.preventDefault();
                         alert(error);
+                    } else {
+                        alert('Added Successfully');
                     }
                 }
             }
@@ -75,6 +77,8 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                     if (error) {
                         e.preventDefault();
                         alert(error);
+                    } else {
+                        alert('Added Successfully');
                     }
                 }
             }

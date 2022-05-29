@@ -1,6 +1,6 @@
 <?php 
 use Illuminate\Support\Facades\DB;
-$items = DB::table('categories')->where('is_main', false)->value('name');
+$items = DB::table('categories')->where('is_main', true)->value('name');
 ?>
 <!DOCTYPE html>
 <html lang="en">

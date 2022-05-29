@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Labeeb's E-Commerce</title>
+    <title>Admin</title>
 </head>
 <body>
-    <h1>Hello World</h1>
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
+    <form action="/create" method="post">
+        <input type="text" name="name" placeholder="Add Product">
+    </form>
 </body>
 </html>

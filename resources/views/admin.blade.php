@@ -71,6 +71,13 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 }
             }
         });
+
+        if(secName.value == '' || mainName.value == '') {
+            function (e) {
+                e.preventDefault();
+                window.alert('Enter A Name!');
+            }
+        }
     </script>
 </body>
 </html>

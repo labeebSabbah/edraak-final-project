@@ -41,11 +41,15 @@ class RegisteredUserController extends Controller
         ]);
 
         $name = $request->fname . " " . $request->lname;
+        $name = DB::connection()->getPdo()->quote($name);
+        $name = htmlspecialchars($name);
+        $password = DB::connection()->getPdo()->quote($password);
+        $password = htmlspecialchars($password);
 
         $user = User::create([
             'name' => $name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make($password),
         ]);
 
         event(new Registered($user));

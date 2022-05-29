@@ -36,7 +36,7 @@ $items = DB::select('SELECT * FROM categories WHERE is_main = true');
             for (let i = 0; i < mainNames.length; i++) {
                 if(mainName.value == mainNames[i].value)  {
                     error += mainName.value + "Already Exists";
-                    if (errro) {
+                    if (error) {
                         e.preventDefault();
                         messages.innerHTML = error;
                     }

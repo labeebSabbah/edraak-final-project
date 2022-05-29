@@ -1,6 +1,6 @@
 <?php 
 use Illuminate\Support\Facades\DB;
-$items = DB::table('categories')->select('*')->where('is_main', true)->value('name');
+$items = DB::select('SELECT * FROM categories WHERE is_main = true');
 ?>
 <!DOCTYPE html>
 <html lang="en">

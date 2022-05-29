@@ -34,7 +34,7 @@ $items = DB::select('SELECT * FROM categories WHERE is_main = true');
         mainForm.addEventListener("submit", function (e) {
             let error = '';
             for (let i = 0; i < mainNames.length; i++) {
-                if(mainName.value == mainNames[i].value)  {
+                if(mainName.value == mainNames[i].innerHTML)  {
                     error += mainName.value + "Already Exists";
                     if (error) {
                         e.preventDefault();

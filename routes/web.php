@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
+    if(Auth::check()) {
     $name = auth()->user()->name;
     if (DB::select('SELECT * FROM users WHERE name = {$name} RETURNING is_admin')) {
         return view('admin');
+    }
     }
     return view('welcome');
 });

@@ -49,6 +49,10 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         
         mainForm.addEventListener("submit", function (e) {
             let error = '';
+            if (mainName.value == "") {
+                e.preventDefault();
+                window.alert("Enter A Name!");
+            }
             for (let i = 0; i < names.length; i++) {
                 if(mainName.value == names[i].innerHTML)  {
                     error += mainName.value + " Already Exists";
@@ -61,6 +65,10 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         });
         secForm.addEventListener("submit", function (e) {
             let error = '';
+            if (secName.value == "") {
+                e.preventDefault();
+                window.alert("Enter A Name!");
+            }
             for (let i = 0; i < names.length; i++) {
                 if(secName.value == names[i].innerHTML)  {
                     error += secName.value + " Already Exists";
@@ -71,13 +79,6 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 }
             }
         });
-
-        if(secName.value == '' || mainName.value == '') {
-            function (e) {
-                e.preventDefault();
-                window.alert('Enter A Name!');
-            }
-        }
     </script>
 </body>
 </html>

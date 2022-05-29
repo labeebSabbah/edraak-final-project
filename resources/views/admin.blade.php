@@ -1,6 +1,7 @@
 <?php 
 use Illuminate\Support\Facades\DB;
-$items = DB::select('SELECT * FROM categories WHERE is_main = true');
+$mainCats = DB::select('SELECT * FROM categories WHERE is_main = true');
+$subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,34 +12,65 @@ $items = DB::select('SELECT * FROM categories WHERE is_main = true');
     <title>Admin</title>
 </head>
 <body>
-    <h2>Main Categories</h2>
+<h2>Main Categories</h2>
     <form action="/create" method="get" id="mainForm">
-        <p id="message"></p>
+        <p id="mainMessage"></p>
         <input type="text" name="name" placeholder="Add Product" id="mainName">
         <button type="submit" name="main" value="1">Add</button> <br>
     </form>
     <ol>
     <?php 
-            foreach ($items as $item) {
+            foreach ($mainCats as $item) {
                 $name = $item->name;
-                echo "<li name='{$name}' class='mainNames' value='{$name}'>{$name}</li>";
+                echo "<li name='{$name}' class='names'>{$name}</li>";
             }
         ?>
     </ol>
+    <div style="margin-left: 200px;">
+    <h2>Sub-Categories</h2>
+    <form action="/create" method="get" id="secForm">
+        <p id="secMessage"></p>
+        <input type="text" name="name" placeholder="Add Product" id="secName">
+        <button type="submit" name="main" value="0">Add</button> <br>
+    </form>
+    <ol>
+    <?php 
+            foreach ($subCats as $item) {
+                $name = $item->name;
+                echo "<li name='{$name}' class='names'>{$name}</li>";
+            }
+        ?>
+    </ol>
+        </div>
     <script>
         const mainForm = document.getElementById('mainForm');
+        const secForm = document.getElementById('secForm');
         const mainName = document.getElementById('mainName');
-        const messages = document.getElementById('message');
-        const mainNames = document.getElementsByClassName('mainNames');
+        const secName = document.getElementById('secName');
+        const mainMessage = document.getElementById('mainMessage');
+        const secMessage = document.getElementById('secMessage');
+        const names = document.getElementsByClassName('names');
         
         mainForm.addEventListener("submit", function (e) {
             let error = '';
-            for (let i = 0; i < mainNames.length; i++) {
-                if(mainName.value == mainNames[i].innerHTML)  {
-                    error += mainName.value + "Already Exists";
+            for (let i = 0; i < names.length; i++) {
+                if(mainName.value == names[i].innerHTML)  {
+                    error += mainName.value + " Already Exists";
                     if (error) {
                         e.preventDefault();
-                        messages.innerHTML = error;
+                        mainMessage.innerHTML = error;
+                    }
+                }
+            }
+        });
+        secForm.addEventListener("submit", function (e) {
+            let error = '';
+            for (let i = 0; i < names.length; i++) {
+                if(secName.value == names[i].innerHTML)  {
+                    error += secName.value + " Already Exists";
+                    if (error) {
+                        e.preventDefault();
+                        secMessage.innerHTML = error;
                     }
                 }
             }

@@ -7,7 +7,7 @@
     <title>Labeeb's E-Commerce</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <h1>Hello World :)</h1>
     <a href="/login">Login</a>
     <a href="/register">Register</a>
 </body>

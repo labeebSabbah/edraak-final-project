@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,9 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    if (Auth::is_admin) {
-    
+    $name = auth()->user()->name;
+    if (DB::select('SELECT * FROM users WHERE name = {$name} RETURNING is_admin')) {
+        return view('admin');
     }
     return view('welcome');
 });

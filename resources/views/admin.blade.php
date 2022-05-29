@@ -51,14 +51,14 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             let error = '';
             if (mainName.value == "") {
                 e.preventDefault();
-                window.alert("Enter A Name!");
+                alert("Enter A Name!");
             }
             for (let i = 0; i < names.length; i++) {
                 if(mainName.value == names[i].innerHTML)  {
                     error += mainName.value + " Already Exists";
                     if (error) {
                         e.preventDefault();
-                        window.alert(error);
+                        alert(error);
                     }
                 }
             }
@@ -67,14 +67,14 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             let error = '';
             if (secName.value == "") {
                 e.preventDefault();
-                window.alert("Enter A Name!");
+                alert("Enter A Name!");
             }
             for (let i = 0; i < names.length; i++) {
                 if(secName.value == names[i].innerHTML)  {
                     error += secName.value + " Already Exists";
                     if (error) {
                         e.preventDefault();
-                        window.alert(error);
+                        alert(error);
                     }
                 }
             }

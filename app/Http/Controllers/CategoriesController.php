@@ -10,6 +10,5 @@ class CategoriesController extends Controller
 {
     public function create(Request $request) {
         DB::table('categories')->insert(['name' => $request->input('name'), 'is_main' => $request->input('main')]);
-        return redirect()->route('home');
     }
 }

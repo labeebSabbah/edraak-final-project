@@ -25,7 +25,7 @@ Route::get('/', function () {
     }
     }
     return view('welcome');
-})->name('home');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -33,6 +33,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/nothing', function () {return view('nothing');});
 
-Route::post('/create', [CategoriesController::class, 'create']);
+Route::get('/create', [CategoriesController::class, 'create']);
  
 require __DIR__.'/auth.php';

@@ -12,7 +12,7 @@ $items = DB::table('categories')->where('is_main', false)->value('name');
 </head>
 <body>
     <h2>Main Categories</h2>
-    <form action="/create" method="post">
+    <form action="/create" method="get">
         <input type="text" name="name" placeholder="Add Product">
         <button type="submit" name="main" value="1">Add</button>
         <?php 

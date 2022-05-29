@@ -15,9 +15,13 @@ $items = DB::select('SELECT * FROM categories WHERE is_main = true');
     <form action="/create" method="get">
         <input type="text" name="name" placeholder="Add Product">
         <button type="submit" name="main" value="1">Add</button> <br>
-        <?php 
-            print_r($items);
-        ?>
     </form>
+    <ol>
+    <?php 
+            foreach ($items as $item) {
+                echo '<li name="{$item->name}">{$item->name}</li>';
+            }
+        ?>
+    </ol>
 </body>
 </html>

@@ -14,7 +14,6 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
 <body>
 <h2>Main Categories</h2>
     <form action="/create" method="get" id="mainForm">
-        <p id="mainMessage"></p>
         <input type="text" name="name" placeholder="Add Product" id="mainName">
         <button type="submit" name="main" value="1">Add</button> <br>
     </form>
@@ -29,7 +28,6 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
     <div style="margin-left: 200px;">
     <h2>Sub-Categories</h2>
     <form action="/create" method="get" id="secForm">
-        <p id="secMessage"></p>
         <input type="text" name="name" placeholder="Add Product" id="secName">
         <button type="submit" name="main" value="0">Add</button> <br>
     </form>
@@ -47,8 +45,6 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         const secForm = document.getElementById('secForm');
         const mainName = document.getElementById('mainName');
         const secName = document.getElementById('secName');
-        const mainMessage = document.getElementById('mainMessage');
-        const secMessage = document.getElementById('secMessage');
         const names = document.getElementsByClassName('names');
         
         mainForm.addEventListener("submit", function (e) {
@@ -58,7 +54,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                     error += mainName.value + " Already Exists";
                     if (error) {
                         e.preventDefault();
-                        mainMessage.innerHTML = error;
+                        console.log(error);
                     }
                 }
             }
@@ -70,7 +66,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                     error += secName.value + " Already Exists";
                     if (error) {
                         e.preventDefault();
-                        secMessage.innerHTML = error;
+                        console.log(error);
                     }
                 }
             }

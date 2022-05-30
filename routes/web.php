@@ -30,5 +30,7 @@ Route::get('/', function () {
 Route::get('/nothing', function () {return view('nothing');});
 
 Route::get('/create', [CategoriesController::class, 'create']);
+
+Route::get('/delete', [CategoriesController::class, 'delete']);
  
 require __DIR__.'/auth.php';

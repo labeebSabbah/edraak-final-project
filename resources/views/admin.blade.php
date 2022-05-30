@@ -35,7 +35,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
     <?php 
             foreach ($subCats as $item) {
                 $name = $item->name;
-                echo "<li name='{$name}' class='names'>{$name}<form action='/delete' method='get'><button type='submit' name='cat' value='{$name}' onclick='confDelete()'>Delete</button></form></li>";
+                echo "<li name='{$name}' class='names'>{$name}<form action='/delete' method='get'><button type='submit' name='cat' value='{$name}' class='deletebtn'>Delete</button></form></li>";
             }
         ?>
     </ol>
@@ -46,13 +46,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         const mainName = document.getElementById('mainName');
         const secName = document.getElementById('secName');
         const names = document.getElementsByClassName('names');
-
-        function confDelete(e) {
-            let choice = confirm("Are You Sure You Want To Delete??");
-            if (!choice) {
-                e.preventDefault();
-            }
-        }
+        const deleteBtn = document.getElementsByClassName('deletebtn');
         
         mainForm.addEventListener("submit", function (e) {
             let error = '';
@@ -70,6 +64,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 }
             }
         });
+
         secForm.addEventListener("submit", function (e) {
             let error = '';
             if (secName.value == "") {
@@ -84,6 +79,15 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                         alert(error);
                     }
                 }
+            }
+        });
+
+        deleteBtn.addEventListener("submit", function (e) {
+            let choice = confirm("Are you sure that you want to Delete it ??");
+            if (!choice) {
+                e.preventDefault();
+            } else {
+                alert("Category Deleted Successfully");
             }
         });
     </script>

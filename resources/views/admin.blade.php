@@ -13,7 +13,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
 </head>
 <body>
 <h2>Main Categories</h2>
-    <form action="/create" method="get" id="mainForm">
+    <form action="/createCat" method="get" id="mainForm">
         <input type="text" name="name" placeholder="Add Product" id="mainName">
         <button type="submit" name="main" value="1">Add</button> <br>
     </form>
@@ -27,12 +27,12 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
     </ol>
     <div style="margin-left: 200px;">
     <h2>Sub-Categories</h2>
-    <form action="/create" method="get" id="secForm">
+    <form action="/createCat" method="get" id="secForm">
         <input type="text" name="name" placeholder="Add Product" id="secName">
         <button type="submit" name="main" value="0">Add</button> <br>
     </form>
     <ol>
-        <form method="get" action="/delete" id="deleteForm">
+        <form method="get" action="/deleteCat" id="deleteForm">
     <?php 
             foreach ($subCats as $item) {
                 $name = $item->name;
@@ -65,6 +65,9 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                     }
                 }
             }
+            if (!error) {
+                alert("Added Successfully");
+            }
         });
 
         secForm.addEventListener("submit", function (e) {
@@ -82,14 +85,22 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                     }
                 }
             }
+            if(!error) {
+                alert("Added Successfully");
+            }
         });
 
         deleteForm.addEventListener("submit", function (e) {
+            let error = '';
             let choice = confirm("Are you sure that you want to Delete it ??");
             if (!choice) {
                 e.preventDefault();
+            } else {}
+            if(error) {
+                e.preventDefault();
+                alert("Can't Delete the file");
             } else {
-                alert("Category Deleted Successfully");
+                alert("File Deleted Successfully");
             }
         });
     </script>

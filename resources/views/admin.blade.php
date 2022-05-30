@@ -82,7 +82,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             }
         });
 
-        deleteBtn.addEventListener("submit", function (e) {
+        deleteForm.addEventListener("submit", function (e) {
             let choice = confirm("Are you sure that you want to Delete it ??");
             if (!choice) {
                 e.preventDefault();

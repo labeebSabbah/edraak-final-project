@@ -9,7 +9,9 @@ use App\Models\Categories;
 class CategoriesController extends Controller
 {
     public function create(Request $request) {
-        DB::table('categories')->insert(['name' => $request->input('name'), 'is_main' => $request->input('main')]);
+        $name = $request->input('name');
+        $name = htmlspecialchars($name);
+        DB::table('categories')->insert(['name' => $name, 'is_main' => $request->input('main')]);
         return redirect()->route('home');
     }
 

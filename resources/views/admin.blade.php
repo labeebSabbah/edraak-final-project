@@ -32,12 +32,14 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         <button type="submit" name="main" value="0">Add</button> <br>
     </form>
     <ol>
+        <form method="get" action="/delete" id="deleteForm">
     <?php 
             foreach ($subCats as $item) {
                 $name = $item->name;
-                echo "<li name='{$name}' class='names'>{$name}<form action='/delete' method='get' class='deleteForm'><button type='submit' name='cat' value='{$name}'>Delete</button></form></li>";
+                echo "<li name='{$name}' class='names'>{$name}<button type='submit' name='cat' value='{$name}'>Delete</button></li>";
             }
         ?>
+    </form>
     </ol>
         </div>
     <script>
@@ -46,7 +48,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         const mainName = document.getElementById('mainName');
         const secName = document.getElementById('secName');
         const names = document.getElementsByClassName('names');
-        const deleteForm = document.getElementsByClassName('deleteForm');
+        const deleteForm = document.getElementById('deleteForm');
         
         mainForm.addEventListener("submit", function (e) {
             let error = '';

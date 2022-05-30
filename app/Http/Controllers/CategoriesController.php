@@ -14,7 +14,7 @@ class CategoriesController extends Controller
     }
 
     public function delete(Request $request) {
-        DB::select('DELETE FROM categories WHERE name = $request->cat');
+        DB::table('categories')->where('name', '=', $request->input('cat'));
         return redirect()->route('home');
     }
 }

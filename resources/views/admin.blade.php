@@ -35,7 +35,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
     <?php 
             foreach ($subCats as $item) {
                 $name = $item->name;
-                echo "<li name='{$name}' class='names'>{$name}<form action='/delete' method='get'><button type='submit' name='cat' value='{$name}' class='deletebtn'>Delete</button></form></li>";
+                echo "<li name='{$name}' class='names'>{$name}<form action='/delete' method='get' class='deleteForm'><button type='submit' name='cat' value='{$name}'>Delete</button></form></li>";
             }
         ?>
     </ol>
@@ -46,7 +46,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         const mainName = document.getElementById('mainName');
         const secName = document.getElementById('secName');
         const names = document.getElementsByClassName('names');
-        const deleteBtn = document.getElementsByClassName('deletebtn');
+        const deleteForm = document.getElementsByClassName('deleteForm');
         
         mainForm.addEventListener("submit", function (e) {
             let error = '';

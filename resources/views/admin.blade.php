@@ -55,6 +55,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             if (mainName.value == "") {
                 e.preventDefault();
                 alert("Enter A Name!");
+                error += "error";
             }
             for (let i = 0; i < names.length; i++) {
                 if(mainName.value == names[i].innerHTML)  {
@@ -75,6 +76,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             if (secName.value == "") {
                 e.preventDefault();
                 alert("Enter A Name!");
+                error += "error";
             }
             for (let i = 0; i < names.length; i++) {
                 if(secName.value == names[i].innerHTML)  {

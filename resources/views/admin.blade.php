@@ -18,10 +18,11 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         <button type="submit" name="main" value="1">Add</button> <br>
     </form>
     <ol>
+        <form method="get" action="/deleteCat" class="deleteForm">
     <?php 
             foreach ($mainCats as $item) {
                 $name = $item->name;
-                echo "<li name='{$name}' class='names'>{$name}</li>";
+                echo "<li name='{$name}' class='names'>{$name}<button type='submit' name='cat' value='{$name}'>Delete</button></li>";
             }
         ?>
     </ol>
@@ -32,7 +33,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         <button type="submit" name="main" value="0">Add</button> <br>
     </form>
     <ol>
-        <form method="get" action="/deleteCat" id="deleteForm">
+        <form method="get" action="/deleteCat" class="deleteForm">
     <?php 
             foreach ($subCats as $item) {
                 $name = $item->name;
@@ -48,7 +49,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         const mainName = document.getElementById('mainName');
         const secName = document.getElementById('secName');
         const names = document.getElementsByClassName('names');
-        const deleteForm = document.getElementById('deleteForm');
+        const deleteForm = document.getElementsByClassName('deleteForm');
         
         mainForm.addEventListener("submit", function (e) {
             let error = '';
@@ -91,8 +92,8 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 alert("Added Successfully");
             }
         });
-
-        deleteForm.addEventListener("submit", function (e) {
+        for (let i = 0; i < deleteForm.length; i++) {
+        deleteForm[i].addEventListener("submit", function (e) {
             let error = '';
             let choice = confirm("Are you sure that you want to Delete it ??");
             if (!choice) {
@@ -105,6 +106,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 alert("File Deleted Successfully");
             }
         });
+    }
     </script>
 </body>
 </html>

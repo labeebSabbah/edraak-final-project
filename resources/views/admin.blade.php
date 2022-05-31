@@ -50,7 +50,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         const mainName = document.getElementById('mainName');
         const secName = document.getElementById('secName');
         const names = document.getElementsByClassName('names');
-        const deleteForm = document.getElementsByClassName('deleteForm');
+        // const deleteForm = document.getElementsByClassName('deleteForm');
         
         mainForm.addEventListener("submit", function (e) {
             let error = '';

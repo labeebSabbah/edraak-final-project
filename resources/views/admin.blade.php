@@ -12,6 +12,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
     <title>Admin</title>
 </head>
 <body>
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
 <h2>Main Categories</h2>
     <form action="/createCat" method="get" id="mainForm">
         <input type="text" name="name" placeholder="Add Product" id="mainName">

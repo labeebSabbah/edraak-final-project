@@ -28,6 +28,16 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        $email = $request->email;
+        $password = $request->password;
+
+        $email = DB::connection()->getPdo()->quote($email);
+        $email = htmlspecialchars($email);
+        $password = DB::connection()->getPdo()->quote($password);
+        $password = htmlspecialchars($password);
+
+        Auth::attempt(['email' => $email, 'password' => $password]);
+
         $request->authenticate();
 
         $request->session()->regenerate();

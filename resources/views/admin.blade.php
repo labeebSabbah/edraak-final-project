@@ -36,7 +36,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
     <?php 
             foreach ($subCats as $item) {
                 $name = $item->name;
-                echo "<li name='{$name}' class='names'>{$name}<button type='submit' name='cat' value='{$name}'>Delete</button></li>";
+                echo "<li name='{$name}' class='names'>{$name}</li><button type='submit' name='cat' value='{$name}'>Delete</button>";
             }
         ?>
     </form>

@@ -51,7 +51,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         const mainName = document.getElementById('mainName');
         const secName = document.getElementById('secName');
         const names = document.getElementsByClassName('names');
-        const deleteForm = document.getElementById('deleteForm');
+        const deleteForm = document.querySelectorAll('.deleteForm');
         
         mainForm.addEventListener("submit", function (e) {
             let error = '';
@@ -90,10 +90,11 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 alert("Added Successfully");
             }
         });
-        for (let i = 0; i < deleteForm.length; i++) {
-        deleteForm[i].addEventListener("submit", function (e) {
-            let error = '';
-            let choice = confirm("Are you sure that you want to Delete it ??");
+        
+        deleteForm.forEach(item => {
+          item.addEventListener("submit", function (e) {
+            var error = '';
+            var choice = confirm("Are you sure that you want to Delete it ??");
             if (!choice) {
                 e.preventDefault();
             } else {}
@@ -103,8 +104,10 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             } else {
                 alert("File Deleted Successfully");
             }
+        });  
         });
-    }
+
+
         };
         
     </script>

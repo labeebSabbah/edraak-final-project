@@ -71,7 +71,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             }
         }
         
-        mainForm.addEventListener("submit", addCategory(mainForm,mainName)
+        mainForm.addEventListener("submit", addCategory(e,mainForm,mainName)
             // let error = '';
             // if (mainName.value == "") {
             //     e.preventDefault();

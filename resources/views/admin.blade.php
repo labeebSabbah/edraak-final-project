@@ -90,19 +90,19 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 alert("Added Successfully");
             }
         });
-        
+
         deleteForm.forEach(item => {
           item.addEventListener("submit", function (e) {
             var error = '';
             var choice = confirm("Are you sure that you want to Delete it ??");
             if (!choice) {
                 e.preventDefault();
-            } else {}
+            } else {
+                alert("Category Deleted Successfully");
+            }
             if(error) {
                 e.preventDefault();
                 alert("Can't Delete the file");
-            } else {
-                alert("File Deleted Successfully");
             }
         });  
         });

@@ -49,17 +49,17 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         const secName = document.getElementById('secName');
         const names = document.getElementsByClassName('names');
         const deleteForm = document.getElementById('deleteForm');
-
-        function addCategory(name) {
+        
+        mainForm.addEventListener("submit", function (e) {
             let error = '';
-            if (name.value == "") {
+            if (mainName.value == "") {
                 e.preventDefault();
                 alert("Enter A Name!");
                 error += "error";
             }
             for (let i = 0; i < names.length; i++) {
-                if (name.value == names[i].innerHTML) {
-                    error += name.value + " Already Exists";
+                if(mainName.value == names[i].innerHTML)  {
+                    error += mainName.value + " Already Exists";
                     if (error) {
                         e.preventDefault();
                         alert(error);
@@ -69,30 +69,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             if (!error) {
                 alert("Added Successfully");
             }
-        }
-        
-        mainForm.addEventListener("submit", function (e) {
-            addCategory(mainName);
-        }
-            // let error = '';
-            // if (mainName.value == "") {
-            //     e.preventDefault();
-            //     alert("Enter A Name!");
-            //     error += "error";
-            // }
-            // for (let i = 0; i < names.length; i++) {
-            //     if(mainName.value == names[i].innerHTML)  {
-            //         error += mainName.value + " Already Exists";
-            //         if (error) {
-            //             e.preventDefault();
-            //             alert(error);
-            //         }
-            //     }
-            // }
-            // if (!error) {
-            //     alert("Added Successfully");
-            // }
-        );
+        });
 
         secForm.addEventListener("submit", function (e) {
             let error = '';

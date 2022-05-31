@@ -83,7 +83,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 if(secName.value == names[i].value)  {
                     error += secName.value + " Already Exists";
                     e.preventDefault();
-                    alert(error)
+                    alert(error);
                 }
             }
             if(!error) {

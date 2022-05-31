@@ -21,4 +21,11 @@ class CategoriesController extends Controller
         DB::table('categories')->where('name', '=', $name)->delete();
         return redirect()->route('home');
     }
+
+    public function update(Request $request) {
+        $new_name = $require->name;
+        $new_name = htmlspecialchars($name);
+        DB::select("UPDATE categories SET name = {$new_name} WHERE name = {$request->name}");
+        return redirect()->route('home');
+    }
 }

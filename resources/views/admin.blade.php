@@ -49,17 +49,17 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         const secName = document.getElementById('secName');
         const names = document.getElementsByClassName('names');
         const deleteForm = document.getElementById('deleteForm');
-        
-        mainForm.addEventListener("submit", function (e) {
+
+        function addCategory(e, form, name) {
             let error = '';
-            if (mainName.value == "") {
+            if (name.value == "") {
                 e.preventDefault();
                 alert("Enter A Name!");
                 error += "error";
             }
             for (let i = 0; i < names.length; i++) {
-                if(mainName.value == names[i].innerHTML)  {
-                    error += mainName.value + " Already Exists";
+                if (name.value == names[i].innerHTML) {
+                    error += name.value + " Already Exists";
                     if (error) {
                         e.preventDefault();
                         alert(error);
@@ -69,7 +69,28 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             if (!error) {
                 alert("Added Successfully");
             }
-        });
+        }
+        
+        mainForm.addEventListener("submit", addCategory(mainForm,mainName)
+            // let error = '';
+            // if (mainName.value == "") {
+            //     e.preventDefault();
+            //     alert("Enter A Name!");
+            //     error += "error";
+            // }
+            // for (let i = 0; i < names.length; i++) {
+            //     if(mainName.value == names[i].innerHTML)  {
+            //         error += mainName.value + " Already Exists";
+            //         if (error) {
+            //             e.preventDefault();
+            //             alert(error);
+            //         }
+            //     }
+            // }
+            // if (!error) {
+            //     alert("Added Successfully");
+            // }
+        );
 
         secForm.addEventListener("submit", function (e) {
             let error = '';

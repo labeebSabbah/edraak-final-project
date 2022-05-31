@@ -18,14 +18,12 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         <button type="submit" name="main" value="1">Add</button> <br>
     </form>
     <ol>
-        <form method="get" action="/deleteCat" class="deleteForm">
     <?php 
             foreach ($mainCats as $item) {
                 $name = $item->name;
-                echo "<li name='{$name}' class='names'>{$name}<button type='submit' name='cat' value='{$name}'>Delete</button></li>";
+                echo "<li name='{$name}' class='names'>{$name}</li>";
             }
         ?>
-    </form>
     </ol>
     <div style="margin-left: 200px;">
     <h2>Sub-Categories</h2>
@@ -34,7 +32,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         <button type="submit" name="main" value="0">Add</button> <br>
     </form>
     <ol>
-        <form method="get" action="/deleteCat" class="deleteForm">
+        <form method="get" action="/deleteCat" id="deleteForm">
     <?php 
             foreach ($subCats as $item) {
                 $name = $item->name;
@@ -50,7 +48,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         const mainName = document.getElementById('mainName');
         const secName = document.getElementById('secName');
         const names = document.getElementsByClassName('names');
-        // const deleteForm = document.getElementsByClassName('deleteForm');
+        const deleteForm = document.getElementById('deleteForm');
         
         mainForm.addEventListener("submit", function (e) {
             let error = '';
@@ -94,21 +92,19 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             }
         });
 
-    //     for (let j = 0; j < deleteForm.length; j++) {
-    //     deleteForm[j].addEventListener("submit", function (e) {
-    //         let error = '';
-    //         let choice = confirm("Are you sure that you want to Delete it ??");
-    //         if (!choice) {
-    //             e.preventDefault();
-    //         } else {}
-    //         if(error) {
-    //             e.preventDefault();
-    //             alert("Can't Delete the file");
-    //         } else {
-    //             alert("File Deleted Successfully");
-    //         }
-    //     });
-    // }
+        deleteForm.addEventListener("submit", function (e) {
+            let error = '';
+            let choice = confirm("Are you sure that you want to Delete it ??");
+            if (!choice) {
+                e.preventDefault();
+            } else {}
+            if(error) {
+                e.preventDefault();
+                alert("Can't Delete the file");
+            } else {
+                alert("File Deleted Successfully");
+            }
+        });
     </script>
 </body>
 </html>

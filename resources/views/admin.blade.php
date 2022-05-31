@@ -18,12 +18,14 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         <button type="submit" name="main" value="1">Add</button> <br>
     </form>
     <ol>
+        <form method="get" action="/deleteCat" class="deleteForm">
     <?php 
             foreach ($mainCats as $item) {
                 $name = $item->name;
-                echo "<li name='{$name}' class='names'>{$name}</li>";
+                echo "<li name='{$name}' class='names'>{$name}</li><button type='submit' name='cat' value='{$name}'>Delete</button>";
             }
         ?>
+    </form>
     </ol>
     <div style="margin-left: 200px;">
     <h2>Sub-Categories</h2>
@@ -32,7 +34,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         <button type="submit" name="main" value="0">Add</button> <br>
     </form>
     <ol>
-        <form method="get" action="/deleteCat" id="deleteForm">
+        <form method="get" action="/deleteCat" class="deleteForm">
     <?php 
             foreach ($subCats as $item) {
                 $name = $item->name;
@@ -88,8 +90,8 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 alert("Added Successfully");
             }
         });
-
-        deleteForm.addEventListener("submit", function (e) {
+        for (let i = 0; i < deleteForm.length; i++) {
+        deleteForm[i].addEventListener("submit", function (e) {
             let error = '';
             let choice = confirm("Are you sure that you want to Delete it ??");
             if (!choice) {
@@ -102,6 +104,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 alert("File Deleted Successfully");
             }
         });
+    }
         };
         
     </script>

@@ -12,7 +12,6 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
     <title>Admin</title>
 </head>
 <body>
-    <x-auth-validation-errors class="mb-4" :errors="$errors" />
 <h2>Main Categories</h2>
     <form action="/createCat" method="get" id="mainForm">
         <input type="text" name="name" placeholder="Add Product" id="mainName">
@@ -44,11 +43,12 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
     </ol>
         </div>
     <script>
-        const mainForm = document.getElementById('mainForm');
+        window.onload = (event) => {
+            const mainForm = document.getElementById('mainForm');
         const secForm = document.getElementById('secForm');
         const mainName = document.getElementById('mainName');
         const secName = document.getElementById('secName');
-        var names = document.getElementsByClassName('names');
+        const names = document.getElementsByClassName('names');
         const deleteForm = document.getElementById('deleteForm');
         
         mainForm.addEventListener("submit", function (e) {
@@ -102,6 +102,8 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 alert("File Deleted Successfully");
             }
         });
+        };
+        
     </script>
 </body>
 </html>

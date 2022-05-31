@@ -50,7 +50,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
         const names = document.getElementsByClassName('names');
         const deleteForm = document.getElementById('deleteForm');
 
-        function addCategory(e, form, name) {
+        function addCategory(name) {
             let error = '';
             if (name.value == "") {
                 e.preventDefault();
@@ -71,7 +71,9 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             }
         }
         
-        mainForm.addEventListener("submit", addCategory(e,mainForm,mainName)
+        mainForm.addEventListener("submit", function (e) {
+            addCategory(mainName);
+        }
             // let error = '';
             // if (mainName.value == "") {
             //     e.preventDefault();

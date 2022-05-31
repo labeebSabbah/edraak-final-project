@@ -94,21 +94,21 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             }
         });
 
-        for (let j = 0; j < deleteForm.length; j++) {
-        deleteForm[j].addEventListener("submit", function (e) {
-            let error = '';
-            let choice = confirm("Are you sure that you want to Delete it ??");
-            if (!choice) {
-                e.preventDefault();
-            } else {}
-            if(error) {
-                e.preventDefault();
-                alert("Can't Delete the file");
-            } else {
-                alert("File Deleted Successfully");
-            }
-        });
-    }
+    //     for (let j = 0; j < deleteForm.length; j++) {
+    //     deleteForm[j].addEventListener("submit", function (e) {
+    //         let error = '';
+    //         let choice = confirm("Are you sure that you want to Delete it ??");
+    //         if (!choice) {
+    //             e.preventDefault();
+    //         } else {}
+    //         if(error) {
+    //             e.preventDefault();
+    //             alert("Can't Delete the file");
+    //         } else {
+    //             alert("File Deleted Successfully");
+    //         }
+    //     });
+    // }
     </script>
 </body>
 </html>

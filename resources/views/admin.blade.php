@@ -25,6 +25,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 echo "<li name='{$name}' class='names'>{$name}<button type='submit' name='cat' value='{$name}'>Delete</button></li>";
             }
         ?>
+    </form>
     </ol>
     <div style="margin-left: 200px;">
     <h2>Sub-Categories</h2>
@@ -92,7 +93,7 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
                 alert("Added Successfully");
             }
         });
-        
+
         // for (let i = 0; i < deleteForm.length; i++) {
         // deleteForm[i].addEventListener("submit", function (e) {
         //     let error = '';

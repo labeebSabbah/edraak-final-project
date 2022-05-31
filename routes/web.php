@@ -33,8 +33,8 @@ Route::get('/createCat', [CategoriesController::class, 'create']);
 
 Route::get('/deleteCat', [CategoriesController::class, 'delete']);
 
-Route::get('/createCat', [ProductsController::class, 'create']);
+Route::get('/createProd', [ProductsController::class, 'create']);
 
-Route::get('/deleteCat', [ProductsController::class, 'delete']);
+Route::get('/deleteProd', [ProductsController::class, 'delete']);
  
 require __DIR__.'/auth.php';

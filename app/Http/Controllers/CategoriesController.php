@@ -23,9 +23,9 @@ class CategoriesController extends Controller
     }
 
     public function update(Request $request) {
-        $new_name = $require->name;
+        $new_name = $require->input('new_name');
         $new_name = htmlspecialchars($name);
-        DB::select("UPDATE categories SET name = {$new_name} WHERE name = {$request->name}");
+        DB::select("UPDATE categories SET name = {$new_name} WHERE name = {$request->input('name')}");
         return redirect()->route('home');
     }
 }

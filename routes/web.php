@@ -33,6 +33,8 @@ Route::get('/createCat', [CategoriesController::class, 'create']);
 
 Route::get('/deleteCat', [CategoriesController::class, 'delete']);
 
+Route::get('/updateCat', [CategoriesController::class, 'update']);
+
 // Route::get('/createProd', [ProductsController::class, 'create']);
 
 // Route::get('/deleteProd', [ProductsController::class, 'delete']);

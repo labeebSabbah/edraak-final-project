@@ -22,7 +22,13 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
     <?php 
             foreach ($mainCats as $item) {
                 $name = $item->name;
-                echo "<li name='{$name}'><input type='text' value='{$name}' class='names'></li><button type='submit' name='cat' value='{$name}'>Delete</button>";
+                echo "<li name='{$name}'>
+                <form method='get' action='/updateCat' class='updateForm'>
+                <input type='text' value='{$name}' class='names' name='new_name'>
+                <button type='submit' name='cat' value='{$name}'>Update</button>
+                </form>
+                </li>
+                <button type='submit' name='cat' value='{$name}'>Delete</button>";
             }
         ?>
     </form>
@@ -38,7 +44,13 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
     <?php 
             foreach ($subCats as $item) {
                 $name = $item->name;
-                echo "<li name='{$name}'><input type='text'value='{$name}' class='names'></li><button type='submit' name='cat' value='{$name}'>Delete</button>";
+                echo "<li name='{$name}'>
+                <form method='get' action='/updateCat' class='updateForm'>
+                <input type='text'value='{$name}' class='names' name='new_name'>
+                <button type='submit' name='cat' value='{$name}'>Update</button>
+                </form>
+                </li>
+                <button type='submit' name='cat' value='{$name}'>Delete</button>";
             }
         ?>
     </form>

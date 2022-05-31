@@ -94,8 +94,8 @@ $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
             }
         });
 
-        for (let i = 0; i < deleteForm.length; i++) {
-        deleteForm[i].addEventListener("submit", function (e) {
+        for (let j = 0; j < deleteForm.length; j++) {
+        deleteForm[j].addEventListener("submit", function (e) {
             let error = '';
             let choice = confirm("Are you sure that you want to Delete it ??");
             if (!choice) {

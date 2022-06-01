@@ -1,3 +1,9 @@
+<?php 
+	use Illuminate\Support\Facades\DB;
+
+	$mainCat = DB::select('SELECT * FROM categories WHERE is_main = true');
+	$subCat = DB::select('SELECT * FROM categories WHERE is_main = false');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +12,15 @@
 	<title>Categories</title>
 </head>
 <body>
-	<?php 
-		
-	?>
+	<ol>
+		<form method="get" action="/deleteCat">
+			<?php 
+				foreach ($mainCat as $item) {
+					echo "<li name='{$item}'>{$item}</li>
+					<button type='submit' name='name' value='{$name}'>Delete</button>";
+				}
+			?>
+		</form>
+	</ol>
 </body>
 </html>

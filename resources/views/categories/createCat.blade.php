@@ -11,7 +11,7 @@
 		<input type="text" name="name"> <br>
 		<label for="main">Is It A Main Category ?</label>
 		<input type="radio" name="main" value="1">Yes
-		<input type="radio" name="main" value="2" checked>No
+		<input type="radio" name="main" value="0" checked>No
 		<button type="submit">Add</button>
 	</form>
 </body>

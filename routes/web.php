@@ -23,6 +23,8 @@ Route::get('/', function () {
 
 Route::middleware('adminstration')->group(function () {
 
+    if (Auth::check()) {
+
     Route::get('/admin', function () {
     return view('admin');
     })->name('admin'); 
@@ -42,6 +44,10 @@ Route::middleware('adminstration')->group(function () {
     Route::get('/updateCat', function () {
         return view('categories.updateCat');
     });
+
+    } else {
+        return redirect()->route('home');
+    }
 
 });
 

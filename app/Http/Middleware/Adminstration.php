@@ -19,10 +19,10 @@ class Adminstration
     public function handle($request, Closure $next)
     {
         if(Auth::check()) {
-        $name = auth()->user()->name;
-        if (!(DB::table('users')->where('name', $name)->value('is_admin'))) {
-            return redirect()->route('home');
-        }
+            $name = auth()->user()->name;
+            if (!(DB::table('users')->where('name', $name)->value('is_admin'))) {
+                return redirect()->route('home');
+            }
         }
         return $next($request);
     }

@@ -11,6 +11,7 @@
 		<input type="text" name="name"> <br>
 		<label for="main">Is It A Main Category ?</label>
 		<input type="checkbox" name="main">
+		<button type="submit">Add</button>
 	</form>
 </body>
 </html>

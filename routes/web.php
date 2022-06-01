@@ -35,7 +35,7 @@ Route::middleware('adminstration')->group(function () {
         return view('categories.createCat');
     });
 
-    Route::get('/createCat/add', CategoriesController::class, 'create');
+    Route::get('/createCat/add', [CategoriesController::class, 'create']);
 
     Route::get('/deleteCat', [CategoriesController::class, 'delete']);
 

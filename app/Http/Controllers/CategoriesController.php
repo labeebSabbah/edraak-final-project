@@ -13,14 +13,14 @@ class CategoriesController extends Controller
         $name = $request->input('name');
         $name = htmlspecialchars($name);
         DB::table('categories')->insert(['name' => $name, 'is_main' => $request->input('main')]);
-        return redirect()->route('categories');
+        return redirect('/categories');
     }
 
     public function delete(Request $request) {
         $name = $request->input('name');
         $name = htmlspecialchars($name);
         DB::table('categories')->where('name', '=', $name)->delete();
-        return redirect()->route('categories');
+        return redirect('/categories');
     }
 
     public function update(Request $request) {

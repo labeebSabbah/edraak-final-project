@@ -31,11 +31,7 @@ Route::middleware('adminstration')->group(function () {
         return view('categories.showCategories');
     });
 
-    Route::get('/createCat', function () {
-        return view('categories.createCat');
-    });
-
-    Route::get('/createCat/add', [CategoriesController::class, 'create']);
+    Route::get('/createCat', [CategoriesController::class, 'create']);
 
     Route::get('/deleteCat', [CategoriesController::class, 'delete']);
 

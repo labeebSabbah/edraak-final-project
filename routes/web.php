@@ -17,17 +17,18 @@ use App\Http\Controllers\CategoriesController;
 */
 
 Route::get('/', function () {
-    return view('admin');
-    if(Auth::check()) {
-    $name = auth()->user()->name;
-    if (DB::table('users')->where('name', $name)->value('is_admin')) {
-        return view('admin');
-    }
-    }
     return view('welcome');
-})->name('home');
+})->middleware('admin')->name('home');
 
-Route::get('/nothing', function () {return view('nothing');});
+Route::middleware('admin')->group(function () {
+    Route::get('/admin', function () {
+        return view('admin');
+    })->name('admin'); 
+
+    Route::get('/categories', function () {
+        return view('categories.showCategories'); 
+    });
+});
 
 Route::get('/createCat', [CategoriesController::class, 'create']);
 

@@ -46,7 +46,7 @@ Route::middleware('adminstration')->group(function () {
     });
 
     } else {
-        return redirect()->route('home');
+        return redirect('/');
     }
 
 });

@@ -21,7 +21,7 @@ class Adminstration
         if(Auth::check()) {
         $name = auth()->user()->name;
         if (!(DB::table('users')->where('name', $name)->value('is_admin'))) {
-            return redirect('home');
+            return redirect()->route('home');
         }
         }
         return $next($request);

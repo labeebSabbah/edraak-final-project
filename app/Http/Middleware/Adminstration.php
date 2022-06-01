@@ -17,13 +17,13 @@ class Adminstration
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function redirectTo(Request $request)
+    public function handle($request)
     {
         return route('admin');
         if(Auth::check()) {
         $name = auth()->user()->name;
         if (DB::table('users')->where('name', $name)->value('is_admin')) {
-            return route('admin');
+            return redirect('admin');
         }
         }
     }

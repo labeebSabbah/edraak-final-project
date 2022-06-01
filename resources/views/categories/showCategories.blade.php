@@ -13,7 +13,7 @@
 </head>
 <body>
 	<ol>
-		<form method="get" action="/deleteCat">
+		<form method="get" action="/deleteCat" class="deleteForms">
 			<?php 
 				foreach ($mainCat as $item) {
 					$name = $item->name;
@@ -24,7 +24,7 @@
 		</form>
 	</ol>
 	<ol>
-		<form method="get" action="/deleteCat">
+		<form method="get" action="/deleteCat" class="deleteForms">
 			<?php 
 				foreach ($subCat as $item) {
 					$name = $item->name;
@@ -48,6 +48,7 @@
 			const name = document.getElementById('name');
 			const addForm = document.getElementById('addForm');
 			const names = document.getElementsByClassName('names');
+			const deleteForms = document.getElementsByClassName('deleteForms');
 
 			addForm.addEventListener('submit', function (e) {
 				let error = '';
@@ -63,7 +64,24 @@
 				if (error) {
 					e.preventDefault();
 					alert(error);
+				} else {
+					alert("Category Added Successfully");
 				}
+			});
+
+			deleteForms.forEach(item => {
+				item.addEventListener('submit', function (e) {
+					let error = '';
+					var choice = confirm('Are You Sure That You Want To Delete It ?');
+					if (!choice) {
+						e.preventDefault();
+					}
+					if (error) {
+						alert(error);
+					} else {
+						alert("Category Deleted Successfully");
+					}
+				});
 			});
 	</script>
 </body>

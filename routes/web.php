@@ -32,8 +32,7 @@ Route::get('/admin', function () {
     return view('admin');
 })->name('admin'); 
 
-Route::get('/categories', function () {
-    return 
+Route::get('/categories', function () { 
 });
 
 Route::get('/createCat', [CategoriesController::class, 'create']);

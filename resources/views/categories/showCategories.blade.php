@@ -23,5 +23,17 @@
 			?>
 		</form>
 	</ol>
+	<ol>
+		<a href="/createCat">Add</a>
+		<form method="get" action="/deleteCat">
+			<?php 
+				foreach ($subCat as $item) {
+					$name = $item->name;
+					echo "<li name='{$name}'>{$name}</li>
+					<button type='submit' name='name' value='{$name}'>Delete</button>";
+				}
+			?>
+		</form>
+	</ol>
 </body>
 </html>

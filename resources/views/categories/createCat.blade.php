@@ -10,7 +10,8 @@
 		<label for="name">Enter Category Name : </label>
 		<input type="text" name="name"> <br>
 		<label for="main">Is It A Main Category ?</label>
-		<input type="checkbox" name="main">
+		<input type="radio" name="main" value="1">Yes
+		<input type="radio" name="main" value="2" checked>No
 		<button type="submit">Add</button>
 	</form>
 </body>

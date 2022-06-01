@@ -28,7 +28,7 @@
 			<?php 
 				foreach ($subCat as $item) {
 					$name = $item->name;
-					echo "<li name='{$name} class='names'>{$name}</li>
+					echo "<li name='{$name}' class='names'>{$name}</li>
 					<button type='submit' name='name' value='{$name}'>Delete</button>";
 				}
 			?>

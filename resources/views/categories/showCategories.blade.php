@@ -17,7 +17,7 @@
 			<?php 
 				foreach ($mainCat as $item) {
 					$name = $item->name;
-					echo "<li name='{$name}' class='name'>{$name}</li>
+					echo "<li name='{$name}' class='names'>{$name}</li>
 					<button type='submit' name='name' value='{$name}'>Delete</button>";
 				}
 			?>
@@ -53,15 +53,15 @@
 
 			form.addEventListener('submit', function (e) {
 				let error = '';
-				if (name.value == '') {
+				if (name.value == "") {
 					error += "Enter A Name";
-				}
+				} else {
 				for (let i = 0; i < names.length; i++) {
 					if (name.value == names[i].innerHTML) {
 						e.preventDefault();
 						error += names[i].innerHTML + " Already Exists";
 					}
-				}
+				}}
 				if (error) {
 					alert(error);
 				}

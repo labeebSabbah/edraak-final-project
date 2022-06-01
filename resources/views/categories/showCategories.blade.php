@@ -69,8 +69,8 @@
 				}
 			});
 
-			deleteForms.forEach(item => {
-				item.addEventListener('submit', function (e) {
+			for (let i = 0; i < deleteForms.length; i++) {
+				deleteForms[i].addEventListener('submit', function (e) {
 					var error = '';
 					var choice = confirm('Are You Sure That You Want To Delete It ?');
 					if (!choice) {
@@ -82,7 +82,7 @@
 						alert("Category Deleted Successfully");
 					}
 				});
-			});
+			}
 	</script>
 </body>
 </html>

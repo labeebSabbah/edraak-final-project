@@ -18,19 +18,12 @@ use App\Http\Middleware\Adminstration;
 */
 
 Route::get('/', function () {
-    return redirect()->route('admin');
-    if(Auth::check()) {
-    $name = auth()->user()->name;
-    if (DB::table('users')->where('name', $name)->value('is_admin')) {
-        return redirect()->route('admin');
-    }
-    }
     return view('welcome');
-})->middleware('adminstration')->name('home');
+})->name('home');
 
 Route::get('/admin', function () {
     return view('admin');
-})->name('admin'); 
+})->middleware('adminstration')->name('admin'); 
 
 Route::get('/categories', function () { 
 });

@@ -8,10 +8,6 @@ use App\Models\Categories;
 
 class CategoriesController extends Controller
 {
-    public function show() {
-        $mainCats = DB::select('SELECT * FROM categories WHERE is_main = true');
-        $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
-    }
 
     public function create(Request $request) {
         $name = $request->input('name');

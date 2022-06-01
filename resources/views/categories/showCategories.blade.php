@@ -71,7 +71,7 @@
 
 			deleteForms.forEach(item => {
 				item.addEventListener('submit', function (e) {
-					let error = '';
+					var error = '';
 					var choice = confirm('Are You Sure That You Want To Delete It ?');
 					if (!choice) {
 						e.preventDefault();

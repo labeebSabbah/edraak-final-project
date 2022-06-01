@@ -75,11 +75,11 @@
 					var choice = confirm('Are You Sure That You Want To Delete It ?');
 					if (!choice) {
 						e.preventDefault();
+					} else {
+						alert("Category Deleted Successfully");
 					}
 					if (error) {
 						alert(error);
-					} else {
-						alert("Category Deleted Successfully");
 					}
 				});
 			}

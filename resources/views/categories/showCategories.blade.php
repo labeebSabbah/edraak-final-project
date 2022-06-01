@@ -16,7 +16,8 @@
 		<form method="get" action="/deleteCat">
 			<?php 
 				foreach ($mainCat as $item) {
-					echo "<li name='{$item}'>{$item}</li>
+					$name = $item->name;
+					echo "<li name='{$name}'>{$name}</li>
 					<button type='submit' name='name' value='{$name}'>Delete</button>";
 				}
 			?>

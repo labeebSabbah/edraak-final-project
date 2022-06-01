@@ -19,7 +19,7 @@ use App\Http\Middleware\Adminstration;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('admin')->name('home');
+})->name('home');
 
 Route::middleware('admin')->group(function () {
     Route::get('/admin', function () {

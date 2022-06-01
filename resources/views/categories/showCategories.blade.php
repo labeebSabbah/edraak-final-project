@@ -24,7 +24,6 @@
 		</form>
 	</ol>
 	<ol>
-		<a href="/createCat">Add</a>
 		<form method="get" action="/deleteCat">
 			<?php 
 				foreach ($subCat as $item) {
@@ -45,28 +44,27 @@
 	</form>
 
 	<script type="text/javascript">
-		window.onload(function () {
 
 			const name = document.getElementById('name');
-			const form = document.getElementById('addForm');
+			const addForm = document.getElementById('addForm');
 			const names = document.getElementsByClassName('names');
 
-			form.addEventListener('submit', function (e) {
+			addForm.addEventListener('submit', function (e) {
 				let error = '';
 				if (name.value == "") {
 					error += "Enter A Name";
 				} else {
 				for (let i = 0; i < names.length; i++) {
 					if (name.value == names[i].innerHTML) {
-						e.preventDefault();
 						error += names[i].innerHTML + " Already Exists";
+						break;
 					}
 				}}
 				if (error) {
+					e.preventDefault();
 					alert(error);
 				}
 			});
-		});
 	</script>
 </body>
 </html>

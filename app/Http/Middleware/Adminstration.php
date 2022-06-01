@@ -17,7 +17,7 @@ class Adminstration
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle($request)
+    public function handle($request, Closure $next)
     {
         return route('admin');
         if(Auth::check()) {
@@ -26,5 +26,6 @@ class Adminstration
             return redirect('admin');
         }
         }
+        return $next($request);
     }
 }

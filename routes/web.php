@@ -18,17 +18,22 @@ use App\Http\Middleware\Adminstration;
 */
 
 Route::get('/', function () {
+    return redirect()->route('admin');
+    if(Auth::check()) {
+    $name = auth()->user()->name;
+    if (DB::table('users')->where('name', $name)->value('is_admin')) {
+        return redirect()->route('admin');
+    }
+    }
     return view('welcome');
-})->name('home');
+})->middleware('adminstration')->name('home');
 
-Route::middleware('admin')->group(function () {
-    Route::get('/admin', function () {
-        return view('admin');
-    })->name('admin'); 
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin'); 
 
-    Route::get('/categories', function () {
-        return view('categories.showCategories'); 
-    });
+Route::get('/categories', function () {
+    return 
 });
 
 Route::get('/createCat', [CategoriesController::class, 'create']);

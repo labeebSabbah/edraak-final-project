@@ -21,18 +21,22 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/admin', function () {
+Route::middleware('adminstration')->group(function () {
+
+    Route::get('/admin', function () {
     return view('admin');
-})->middleware('adminstration')->name('admin'); 
+    })->name('admin'); 
 
-Route::get('/categories', function () { 
+    Route::get('/categories', function () { 
+    });
+
+    Route::get('/createCat', [CategoriesController::class, 'create']);
+
+    Route::get('/deleteCat', [CategoriesController::class, 'delete']);
+
+    Route::get('/updateCat', [CategoriesController::class, 'update']);
+    
 });
-
-Route::get('/createCat', [CategoriesController::class, 'create']);
-
-Route::get('/deleteCat', [CategoriesController::class, 'delete']);
-
-Route::get('/updateCat', [CategoriesController::class, 'update']);
 
 // Route::get('/createProd', [ProductsController::class, 'create']);
 

@@ -6,8 +6,6 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
-use DB;
 
 class Adminstration
 {
@@ -20,10 +18,9 @@ class Adminstration
      */
     public function handle($request, Closure $next)
     {
-        return route('admin');
         if(Auth::check()) {
         $name = auth()->user()->name;
-        if (!DB::table('users')->where('name', $name)->value('is_admin')) {
+        if (!(DB::table('users')->where('name', $name)->value('is_admin'))) {
             return redirect('home');
         }
         }

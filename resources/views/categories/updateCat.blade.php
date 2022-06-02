@@ -27,11 +27,11 @@
 			} else {
 				 @foreach ($cats as $item)
 
-				 if (new_name.value == {{$item->name}}) {
+				 if (new_name.value == '{{$item->name}}') {
 				 	error += $new_name.value + " Already Exists";
 				 	break;
 				 }
-				 
+
 				 @endforeach
 			}
 

@@ -24,6 +24,10 @@ class CategoriesController extends Controller
     }
 
     public function update(Request $request) {
-        
+        $new_name = $request->input('new_name');
+        $name = $request->input('name');
+        $new_name = htmlspecialchars($new_name);
+        DB::table('categories')->where('name', '=', $name)->update(['name' => $new_name]);
+        return redirect('/categories');
     }
 }

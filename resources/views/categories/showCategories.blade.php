@@ -16,19 +16,16 @@
 		<form method="get" action="/deleteCat" class="deleteForms">
 			@foreach ($mainCat as $item)
 				<li name='{{$item->name}}' class='names'>{{$item->name}}</li>
-				<button type='submit' name='name' value='{{$item->name}}'>Delete</button>";
+				<button type='submit' name='name' value='{{$item->name}}'>Delete</button>"
 			@endforeach
 		</form>
 	</ol>
 	<ol>
 		<form method="get" action="/deleteCat" class="deleteForms">
-			<?php 
-				foreach ($subCat as $item) {
-					$name = $item->name;
-					echo "<li name='{$name}' class='names'>{$name}</li>
-					<button type='submit' name='name' value='{$name}'>Delete</button>";
-				}
-			?>
+			@foreach ($subCat as $item)
+				<li name='{{$item->name}}' class='names'>{{$item->name}}</li>
+				<button type='submit' name='name' value='{{$item->name}}'>Delete</button>"
+			@endforeach
 		</form>
 	</ol>
 	<form method="get" action="/createCat" id="addForm">

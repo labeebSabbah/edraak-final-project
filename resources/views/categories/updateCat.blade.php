@@ -29,7 +29,6 @@
 
 				 if (new_name.value == '{{$item->name}}') {
 				 	error += $new_name.value + " Already Exists";
-				 	break;
 				 }
 
 				 @endforeach

@@ -24,14 +24,14 @@
 			var error = '';
 			if (new_name.value == "") {
 				error += "Enter A Name";
-			} else {
+			} //else {
 				// @foreach ($cats as $item)
 				// if (new_name.value == {{$item->name}}) {
 				// 	error += $new_name.value + " Already Exists";
 				// 	break;
 				// }
 				// @endforeach
-			}
+			//}
 
 			if (error) {
 				e.preventDefault();

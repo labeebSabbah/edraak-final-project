@@ -35,9 +35,11 @@ Route::middleware('adminstration')->group(function () {
 
     Route::get('/deleteCat', [CategoriesController::class, 'delete']);
 
-    Route::get('/updateCat/{id}', function ($id) {
-        return view('categories.updateCat' , ['id' => $id]);
+    Route::get('/updateCat/{name}', function ($name) {
+        return view('categories.updateCat' , ['name' => $name]);
     });
+
+    Route::get('/updateCat', [CategoriesController::class, 'update']);
 
 });
 

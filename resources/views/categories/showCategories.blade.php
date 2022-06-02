@@ -16,7 +16,8 @@
 		<form method="get" action="/deleteCat" class="deleteForms">
 			@foreach ($mainCat as $item)
 				<li name='{{$item->name}}' class='names'>{{$item->name}}</li>
-				<button type='submit' name='name' value='{{$item->name}}'>Delete</button>"
+				<button type='submit' name='name' value='{{$item->name}}'>Delete</button>
+				<a href="/updateCat/{{$item->name}}">Update</a>
 			@endforeach
 		</form>
 	</ol>
@@ -24,7 +25,8 @@
 		<form method="get" action="/deleteCat" class="deleteForms">
 			@foreach ($subCat as $item)
 				<li name='{{$item->name}}' class='names'>{{$item->name}}</li>
-				<button type='submit' name='name' value='{{$item->name}}'>Delete</button>"
+				<button type='submit' name='name' value='{{$item->name}}'>Delete</button>
+				<a href='/updateCat/{{$item->name}}'>Update</a>
 			@endforeach
 		</form>
 	</ol>

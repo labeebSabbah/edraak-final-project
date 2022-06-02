@@ -20,7 +20,7 @@
 		const new_name = document.getElementById('new_name');
 		const updateForm = document.getElementById('updateForm');
 
-		updateForm.addEventListener('submit', function(e) {
+		updateForm.addEventListener('submit', function (e) {
 			var error = '';
 			if (new_name.value == "") {
 				error += "Enter A Name";

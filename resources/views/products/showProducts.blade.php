@@ -1,7 +1,3 @@
-<?php 
-use Illuminate\Support\Facades\DB;
-$products = DB::select('SELECT * from products');
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +6,14 @@ $products = DB::select('SELECT * from products');
 	<title>Products</title>
 </head>
 <body>
+
+	<div>
+		@foreach ($products as $product)
+			{{$product->name}}
+		@endforeach
+	</div>
+
+	{{$products->links()}}
 
 </body>
 </html>

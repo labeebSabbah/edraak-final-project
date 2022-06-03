@@ -29,6 +29,8 @@ Route::middleware('adminstration')->group(function () {
 
     Route::get('/categories', [CategoriesController::class, 'show']);
 
+    Route::get('/products', [ProductsController::class, 'show']);
+
     Route::get('/createCat', [CategoriesController::class, 'create']);
 
     Route::get('/deleteCat', [CategoriesController::class, 'delete']);
@@ -38,10 +40,6 @@ Route::middleware('adminstration')->group(function () {
     });
 
     Route::get('/updateCat', [CategoriesController::class, 'update']);
-
-    Route::get('/products', function () {
-        return view('products.showProducts');
-    });
 
 });
 

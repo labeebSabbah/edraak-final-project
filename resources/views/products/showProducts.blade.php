@@ -10,7 +10,7 @@
 	<div class="container">
 		@foreach ($products as $product)
 			{{$product->name}}
-			{{$product->image}}
+			<img src="{{assets(uploads\$products->image)}}">
 		@endforeach
 	</div>
 

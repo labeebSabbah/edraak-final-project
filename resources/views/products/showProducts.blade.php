@@ -7,7 +7,7 @@
 </head>
 <body>
 
-	<div>
+	<div class="container">
 		@foreach ($products as $product)
 			{{$product->name}}
 		@endforeach

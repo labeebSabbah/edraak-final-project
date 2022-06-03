@@ -23,10 +23,12 @@ class ProductsController extends Controller
         $size = $request->input('size');
         $return = $request->input('return');
         $return = htmlspecialchars($return);
-        $file = $request->file('image');
-        $ext = $file->getClientOriginalExtension();
-        $filename = time().'.'.$ext;
-        $file->move('uploads',$filename);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('uploads',$filename);
+        }
         DB::table('products')->insert([
             'name' => $name,
             'desc' => $desc,

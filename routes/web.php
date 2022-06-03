@@ -38,7 +38,7 @@ Route::middleware('adminstration')->group(function () {
         return view('products.createProduct');
     });
 
-    Route::get('/createProd/add', [ProductsController::class, 'create']);
+    Route::post('/createProd/add', [ProductsController::class, 'create']);
 
     Route::get('/deleteCat', [CategoriesController::class, 'delete']);
 

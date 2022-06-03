@@ -6,14 +6,15 @@
 	<title>Products</title>
 </head>
 <body>
-
+	<a href="/createProd">Add</a>
 	<div class="container">
 		@foreach ($products as $product)
 			{{$product->name}}
+			{{$product->image}}
 		@endforeach
 	</div>
 
-	{{$products->links()}}
+	{{ $products->links() }}
 
 </body>
 </html>

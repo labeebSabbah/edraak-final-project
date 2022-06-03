@@ -34,6 +34,12 @@ Route::middleware('adminstration')->group(function () {
 
     Route::get('/createCat', [CategoriesController::class, 'create']);
 
+    Route::get('/createProd', function () {
+        return view('products.createProduct');
+    });
+
+    Route::get('/createProd/add', [ProductsController::class, 'create']);
+
     Route::get('/deleteCat', [CategoriesController::class, 'delete']);
 
     Route::get('/updateCat/{name}', function ($name) {

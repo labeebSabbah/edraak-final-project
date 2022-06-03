@@ -26,7 +26,7 @@ class ProductsController extends Controller
         $file = $request->file('image');
         $ext = $file->getClientOriginalExtension();
         $filename = time().'.'.$ext;
-        $file->move('uploads'.$filename);
+        $file->move('uploads',$filename);
         DB::table('products')->insert([
             'name' => $name,
             'desc' => $desc,

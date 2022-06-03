@@ -23,11 +23,10 @@ class ProductsController extends Controller
         $size = $request->input('size');
         $return = $request->input('return');
         $return = htmlspecialchars($return);
-        if ($request->hasFile('image')) {
+        if ($request->file('image')) {
             $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time().'.'.$ext;
-            $file->move('uploads',$filename);
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('public/uploads'), $filename);
         }
         DB::table('products')->insert([
             'name' => $name,
@@ -35,7 +34,7 @@ class ProductsController extends Controller
             'price' => $price,
             'size' => $size,
             'return_policy' => $return,
-            'image' => $file
+            'image' => $filename
         ]);
         return redirect('/products');
     }

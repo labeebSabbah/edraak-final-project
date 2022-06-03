@@ -6,7 +6,7 @@
 	<title>Add A New Product</title>
 </head>
 <body>
-	<form method="get" action="/createProd/add" id="createForm">
+	<form method="get" action="/createProd/add" id="createForm" enctype="multipart/form-data">
 		<label for="name">Enter Name</label>
 		<input type="text" name="name" required><br>
 

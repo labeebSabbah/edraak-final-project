@@ -26,7 +26,7 @@ class ProductsController extends Controller
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('public/uploads'), $filename);
+            $file->move('uploads', $filename);
         }
         DB::table('products')->insert([
             'name' => $name,

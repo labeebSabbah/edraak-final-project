@@ -30,7 +30,7 @@ class ProductsController extends Controller
         }
         DB::table('products')->insert([
             'name' => $name,
-            'desc' => $desc,
+            'description' => $desc,
             'price' => $price,
             'size' => $size,
             'return_policy' => $return,

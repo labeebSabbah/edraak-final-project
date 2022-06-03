@@ -9,6 +9,12 @@ use App\Models\Categories;
 class CategoriesController extends Controller
 {
 
+    public function show() {
+        $mainCat = DB::select('SELECT * FROM categories WHERE is_main = true');
+        $subCat = DB::select('SELECT * FROM categories WHERE is_main = false');
+        return view('categories.showCategories', ['mainCat' => $mainCat, 'subCat' => $subCat]);
+    }
+
     public function create(Request $request) {
         $name = $request->input('name');
         $name = htmlspecialchars($name);
@@ -30,4 +36,5 @@ class CategoriesController extends Controller
         DB::table('categories')->where('name', '=', $name)->update(['name' => $new_name]);
         return redirect('/categories');
     }
+
 }

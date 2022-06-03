@@ -1,9 +1,3 @@
-<?php 
-	use Illuminate\Support\Facades\DB;
-
-	$mainCat = DB::select('SELECT * FROM categories WHERE is_main = true');
-	$subCat = DB::select('SELECT * FROM categories WHERE is_main = false');
-?>
 <!DOCTYPE html>
 <html>
 <head>

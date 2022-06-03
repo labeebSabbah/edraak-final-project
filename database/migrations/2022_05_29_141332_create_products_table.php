@@ -20,6 +20,8 @@ return new class extends Migration
             $table->float('price', 6, 2);
             $table->string('size')->nullable();
             $table->string('return_policy')->nullable();
+            $table->string('image');
+            $table->boolean('is_deleted')->default(false);
         });
     }
 

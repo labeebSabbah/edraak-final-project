@@ -40,7 +40,10 @@ class ProductsController extends Controller
     }
 
     public function delete(Request $request) {
-
+        $name = $request->input('name');
+        $name = htmlspecialchars($name);
+        DB::table('products')->where('name', '=', $name)->delete();
+        return redirect('/products');
     }
 
 }

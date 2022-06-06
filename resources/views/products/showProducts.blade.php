@@ -7,12 +7,15 @@
 </head>
 <body>
 	<a href="/createProd">Add</a>
-	<div class="container">
+	<ol class="container">
+		<form method="POST" action="/deleteProd" id="deleteForm">
 		@foreach ($products as $product)
-			{{$product->name}}
+			<li>{{$product->name}}</li>
+			<button type="submit" name="name" value="{{$product}}">Delete</button>
 			<img src="{{asset('uploads/'.$product->image)}}">
 		@endforeach
-	</div>
+		</form>
+	</ol>
 
 	{{ $products->links() }}
 

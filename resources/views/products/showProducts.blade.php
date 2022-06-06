@@ -11,7 +11,7 @@
 		<form method="POST" action="/deleteProd" id="deleteForm">
 		@foreach ($products as $product)
 			<li>{{$product->name}}</li>
-			<button type="submit" name="name" value="{{$product}}">Delete</button>
+			<button type="submit" name="name" value="{{$product->name}}">Delete</button>
 			<img src="{{asset('uploads/'.$product->image)}}">
 		@endforeach
 		</form>

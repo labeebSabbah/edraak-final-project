@@ -8,7 +8,7 @@
 <body>
 	<a href="/createProd">Add</a>
 	<ol class="container">
-		<form method="POST" action="/deleteProd" id="deleteForm">
+		<form method="get" action="/deleteProd" id="deleteForm">
 		@foreach ($products as $product)
 			<li>{{$product->name}}</li>
 			<button type="submit" name="name" value="{{$product->name}}">Delete</button>

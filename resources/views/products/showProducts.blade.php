@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Products</title>
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
 </head>
 <body>
 	<a href="/createProd">Add</a>

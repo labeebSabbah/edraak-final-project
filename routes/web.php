@@ -51,9 +51,5 @@ Route::middleware('adminstration')->group(function () {
     Route::get('/updateCat', [CategoriesController::class, 'update']);
 
 });
-
-// Route::get('/createProd', [ProductsController::class, 'create']);
-
-// Route::get('/deleteProd', [ProductsController::class, 'delete']);
  
 require __DIR__.'/auth.php';

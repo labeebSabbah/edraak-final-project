@@ -9,13 +9,13 @@
 	<form method="post" action="/createProd/add" id="createForm" enctype="multipart/form-data">
 		@csrf
 		<label for="name">Enter Name</label>
-		<input type="text" name="name" required><br>
+		<input type="text" name="name" id="prodName" required><br>
 
 		<label for="desc">Enter Description</label>
-		<input type="text" name="desc" required><br>
+		<input type="text" name="desc" id="prodDesc" required><br>
 
 		<label for="price">Enter Price</label>
-		<input type="number" name="price" required><br>
+		<input type="number" name="price" id="prodPrice" required><br>
 
 		<label for="size">Enter Size</label>
 		<input type="text" name="size"><br>
@@ -28,5 +28,24 @@
 
 		<button type="submit">Add Product</button>
 	</form>
+
+	<script type="text/javascript">
+		
+		const prodPrice = document.getElementById('prodPrice');
+
+		addForm.addEventListener('submit', function (e) {
+			let error = '';
+			if (prodPrice.value <= 0) {
+				error += "Invalid Price";
+			}
+			if (error) {
+				e.preventDefault();
+				alert(error);
+			} else {
+				alert("Product Added Successfully");
+			}
+		});
+
+	</script>
 </body>
 </html>

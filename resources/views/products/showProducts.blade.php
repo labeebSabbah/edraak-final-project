@@ -13,6 +13,7 @@
 		@foreach ($products as $product)
 			<li>{{$product->name}}</li>
 			<button type="submit" name="name" value="{{$product->name}}">Delete</button>
+			<a href="/updateProd/{{$product->name}}">Update</a>
 			<img src="{{asset('uploads/'.$product->image)}}">
 		@endforeach
 		</form>

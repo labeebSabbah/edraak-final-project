@@ -45,4 +45,8 @@ class ProductsController extends Controller
         return redirect('/products');
     }
 
+    public function update(Request $request) {
+
+    }
+
 }

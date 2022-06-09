@@ -26,6 +26,16 @@
 		<label for="image">Image</label>
 		<input type="file" name="image" required>
 
+		@foreach ($mainCats as $item)
+			<label for="mainCat">{{$item->name}}</label>
+			<input type="radio" name="mainCat" value="{{$item->name}}">
+		@endforeach
+
+		@foreach ($subCats as $item)
+			<label for="subCats[]">{{$item->name}}</label>
+			<input type="checkbox" name="subCats[]" value="{{$item->name}}">
+		@endforeach
+
 		<button type="submit">Add Product</button>
 	</form>
 

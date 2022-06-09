@@ -35,7 +35,9 @@ Route::middleware('adminstration')->group(function () {
     Route::get('/createCat', [CategoriesController::class, 'create']);
 
     Route::get('/createProd', function () {
-        return view('products.createProduct');
+        $mainCats = DB::table('categories')->where('is_main', '=', true);
+        $subCats = DB::table('categories')->where('is_main', '=', false);
+        return view('products.createProduct', ['mainCats' => $mainCats, 'subCats' => $subCats]);
     });
 
     Route::post('/createProd/add', [ProductsController::class, 'create']);

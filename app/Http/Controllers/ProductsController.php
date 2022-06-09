@@ -28,13 +28,17 @@ class ProductsController extends Controller
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file->move('uploads', $filename);
         }
+        $mainCat = $request->input('mainCat');
+        $subCats = serialize($request->input('subCats'));
         DB::table('products')->insert([
             'name' => $name,
             'description' => $desc,
             'price' => $price,
             'size' => $size,
             'return_policy' => $return,
-            'image' => $filename
+            'image' => $filename,
+            'main_category' => $mainCat,
+            'sub_categories' => $subCats 
         ]);
         return redirect('/products');
     }

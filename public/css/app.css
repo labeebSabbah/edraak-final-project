@@ -652,6 +652,9 @@ select {
 .z-50 {
   z-index: 50;
 }
+.m-auto {
+  margin: auto;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -751,6 +754,9 @@ select {
 }
 .w-full {
   width: 100%;
+}
+.w-6\/12 {
+  width: 50%;
 }
 .w-8 {
   width: 2rem;

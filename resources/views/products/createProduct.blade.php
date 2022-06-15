@@ -3,38 +3,55 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./css/app.css">
 	<title>Add A New Product</title>
 </head>
-<body>
-	<form method="post" action="/createProd/add" id="createForm" enctype="multipart/form-data">
+<body style="color: white" bgcolor="black">
+	<form method="post" action="/createProd/add" id="createForm" enctype="multipart/form-data" class="container m-auto w-6/12">
 		@csrf
-		<label for="name">Enter Name</label>
-		<input type="text" name="name" id="prodName" required><br>
+		<div>
+			<label for="name">Enter Name</label><br>
+			<input class="w-full" type="text" name="name" id="prodName" required>
+		</div>
 
-		<label for="desc">Enter Description</label>
-		<input type="text" name="desc" id="prodDesc" required><br>
+		<div class="mt-4">
+			<label for="desc">Enter Description</label><br>
+			<input class="w-full" type="text" name="desc" id="prodDesc" required>
+		</div>
+		
+		<div class="mt-4">
+			<label for="price">Enter Price</label><br>
+			<input class="w-full" type="number" name="price" id="prodPrice" required>
+		</div>
 
-		<label for="price">Enter Price</label>
-		<input type="number" name="price" id="prodPrice" required><br>
+		<div class="mt-4">
+			<label for="size">Enter Size</label><br>
+			<input class="w-full" type="text" name="size">
+		</div>
 
-		<label for="size">Enter Size</label>
-		<input type="text" name="size"><br>
+		<div class="mt-4">
+			<label for="return">Enter Return Policy (optional)</label><br>
+			<input class="w-full" type="text" name="return">
+		</div>
 
-		<label for="return">Enter Return Policy (optional)</label>
-		<input type="text" name="return"><br>
+		<div class="mt-4"> 
+			<label for="image">Image</label><br>
+			<input class="w-full" type="file" name="image" required>
+		</div>
 
-		<label for="image">Image</label>
-		<input type="file" name="image" required>
-
-		@foreach ($mainCats as $item)
+		<div class="mt-4">
+			@foreach ($mainCats as $item)
 			<label for="mainCat">{{$item->name}}</label>
 			<input type="radio" name="mainCat" value="{{$item->name}}">
-		@endforeach
+			@endforeach
+		</div>
 
-		@foreach ($subCats as $item)
+		<div class="mt-4">
+			@foreach ($subCats as $item)
 			<label for="subCats[]">{{$item->name}}</label>
 			<input type="checkbox" name="subCats[]" value="{{$item->name}}">
-		@endforeach
+			@endforeach
+		</div>
 
 		<button type="submit">Add Product</button>
 	</form>

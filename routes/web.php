@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\MainController;
 use App\Http\Middleware\Adminstration;
 
 /*
@@ -18,9 +19,7 @@ use App\Http\Middleware\Adminstration;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [MainController::class, 'all'])->name('home');
 
 Route::middleware('adminstration')->group(function () {
 

@@ -51,6 +51,12 @@ Route::middleware('adminstration')->group(function () {
 
     Route::get('/updateCat', [CategoriesController::class, 'update']);
 
+    Route::get('/addItem', [MainController::class, 'addItem']);
+
+    Route::get('/cart', function() {
+        return view('cart');
+    });
+
 });
  
 require __DIR__.'/auth.php';

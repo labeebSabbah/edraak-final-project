@@ -15,4 +15,11 @@ class MainController extends Controller
         ]);
     }
 
+    public function addItem(Request $request) {
+        $cart = $_SESSION['cart'] ?? array();
+        $cart[] = [$request->id,$request->name,$request->price,$request->image];
+        $_SESSION['cart'] = $cart;
+        return redirect('/');
+    }
+
 }

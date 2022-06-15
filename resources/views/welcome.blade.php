@@ -1,3 +1,6 @@
+<?php 
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +12,7 @@
 </head>
 <body>
     <h1>Hello World</h1>
+    <a href="/cart">Show Cart</a> <br>
     <a href="/login">Login</a>
     <a href="/register">Register</a>
     <div style="margin: 0 auto;">
@@ -18,7 +22,7 @@
     </div>
     <div style="margin: 0 auto;">
         @foreach ($products as $item)
-        <span>{{$item->name}} </span>
+        <span>{{$item->name}}<img src="{{asset('uploads/'.$item->image)}}">{{$item->price}}<a href="/addItem?id={{$item->id}}&name={{$item->name}}&price={{$item->price}}&image={{$item->image}}">Add To Cart</a></span> <br>
         @endforeach
         {{$products->links()}}
     </div>

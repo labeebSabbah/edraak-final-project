@@ -52,9 +52,9 @@
 			<input type="checkbox" name="subCats[]" value="{{$item->name}}">
 			@endforeach
 		</div>
-
-		<button type="submit" class="w-full bg-green-500">Add Product</button><br>
-		<a href="/products"><button class="w-full bg-red-600">Cancel</button></a>
+		<br>
+		<button type="submit" class="w-full bg-green-500 py-4">Add Product</button><br>
+		<a href="/products"><button class="w-full bg-red-600 py-4">Cancel</button></a>
 	</form>
 
 	<script type="text/javascript">

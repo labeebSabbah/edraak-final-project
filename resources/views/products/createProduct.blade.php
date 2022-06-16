@@ -53,8 +53,8 @@
 			@endforeach
 		</div>
 		<br>
-		<button type="submit" class="w-full bg-green-500 py-4">Add Product</button><br>
-		<a href="/products"><button class="w-full bg-red-600 py-4">Cancel</button></a>
+		<button type="submit" class="w-full bg-green-500 py-3">Add Product</button><br>
+		<button class="w-full bg-red-600 py-3" onclick="history.back()">Cancel</button>
 	</form>
 
 	<script type="text/javascript">

@@ -21,6 +21,12 @@ use App\Http\Middleware\Adminstration;
 
 Route::get('/', [MainController::class, 'all'])->name('home');
 
+Route::get('/addItem', [MainController::class, 'addItem']);
+
+Route::get('/cart', function() {
+    return view('cart');
+});
+
 Route::middleware('adminstration')->group(function () {
 
     Route::get('/admin', function () {
@@ -50,12 +56,6 @@ Route::middleware('adminstration')->group(function () {
     });
 
     Route::get('/updateCat', [CategoriesController::class, 'update']);
-
-    Route::get('/addItem', [MainController::class, 'addItem']);
-
-    Route::get('/cart', function() {
-        return view('cart');
-    });
 
 });
  

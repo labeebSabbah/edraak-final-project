@@ -11,7 +11,7 @@ class MainController extends Controller
 
     public function all() {
         return view('welcome', [
-            'products' => DB::table('products')->paginate(2),
+            'products' => DB::table('products')->paginate(15),
             'mainCats' => DB::select('SELECT * FROM categories WHERE is_main = true')
         ]);
     }

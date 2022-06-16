@@ -11,7 +11,8 @@
 		$cart = $_SESSION['cart'] ?? array();
 		if (count($cart) == 0) {
 			echo "Your Cart Is Empty";
-		} else {
+			echo "<a href='/'><button>Add Products</button></a>";
+		 } else {
 			var_dump($cart);
 		}
 	?>

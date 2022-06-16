@@ -1,4 +1,8 @@
-<?php session_start() ?>
+<?php 
+session_start();
+$cart = $_SESSION['cart'] ?? array();
+$total = 0;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +11,17 @@
 	<title>Cart</title>
 </head>
 <body>
-	<?php 
-		$cart = $_SESSION['cart'] ?? array();
-		if (count($cart) == 0) {
-			echo "Your Cart Is Empty";
-			echo "<a href='/'><button>Add Products</button></a>";
-		 } else {
-			var_dump($cart);
-		}
-	?>
+	@if (count($cart) == 0)
+		<h2>Your Cart Is Empty</h2>
+		<a href="/"><button>Add Products</button></a>
+	@else
+		<ol>
+			@foreach ($cart as $item)
+			<?php $total += $item['quantity'] * floatval($item['price']); ?>
+			<li>{{$item['id']}} {{$item['name']}} {{$item['quantity']}} <a href="/removeItem?id={{$item['id']}}">Remove From Cart</a></li>
+			@endforeach
+		</ol>
+		<p>Total = {{$total}}</p>
+	@endif
 </body>
 </html>

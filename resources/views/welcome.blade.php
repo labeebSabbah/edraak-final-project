@@ -1,3 +1,6 @@
+<?php 
+$cart = $_SESSION['cart'] ?? array();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
 </head>
 <body>
     <h1>Hello World</h1>
-    <a href="/cart">Show Cart</a> <br>
+    <a href="/cart">Show Cart </a><?php echo count($cart);?><br>
     <a href="/login">Login</a>
     <a href="/register">Register</a>
     <div style="margin: 0 auto;">

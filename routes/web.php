@@ -23,6 +23,8 @@ Route::get('/', [MainController::class, 'all'])->name('home');
 
 Route::get('/addItem', [MainController::class, 'addItem']);
 
+Route::get('/removeItem', [MainController::class, 'removeItem']);
+
 Route::get('/cart', function() {
     return view('cart');
 });

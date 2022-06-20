@@ -734,6 +734,9 @@ select {
 .h-16 {
   height: 4rem;
 }
+.h-3\/6 {
+  height: 50%;
+}
 .h-10 {
   height: 2.5rem;
 }

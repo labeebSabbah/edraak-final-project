@@ -39,17 +39,25 @@ Route::middleware('adminstration')->group(function () {
 
     Route::get('/products', [ProductsController::class, 'show']);
 
-    Route::get('/createCat', [CategoriesController::class, 'create']);
+    Route::get('/createSub', function () {
+        return view('categories.createSubCat');
+    });
+
+    Route::get('/createSub/add', [CategoriesController::class, 'addSub']);
+
+    Route::get('/createMain/add', [CategoriesController::class, 'addMain']);
 
     Route::get('/createProd', function () {
-        $mainCats = DB::select('SELECT * FROM categories WHERE is_main = true');
-        $subCats = DB::select('SELECT * FROM categories WHERE is_main = false');
+        $mainCats = DB::select('SELECT * FROM main_categories');
+        $subCats = DB::select('SELECT * FROM sub_categories');
         return view('products.createProduct', ['mainCats' => $mainCats, 'subCats' => $subCats]);
     });
 
     Route::post('/createProd/add', [ProductsController::class, 'create']);
 
-    Route::get('/deleteCat', [CategoriesController::class, 'delete']);
+    Route::get('/deleteMain', [CategoriesController::class, 'deleteMain']);
+
+    Route::get('/deleteSub', [CategoriesController::class, 'deleteSub']);
 
     Route::get('/deleteProd', [ProductsController::class, 'delete']);
 

@@ -1,7 +1,9 @@
 <?php 
 	use Illuminate\Support\Facades\DB;
 
-	$cats = DB::select('SELECT * FROM categories');
+	$main_cats = DB::select('SELECT * FROM main_categories');
+	$id = DB::table('sub_categories')->where('name', $name)->value('main_id');
+	$sub_cats = DB::select("SELECT * FROM sub_categories WHERE main_id = {$id}");
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +27,15 @@
 			if (new_name.value == "") {
 				error += "Enter A Name";
 			} else {
-				 @foreach ($cats as $item)
+				 @foreach ($main_cats as $item)
+
+				 if (new_name.value == '{{$item->name}}') {
+				 	error += new_name.value + " Already Exists";
+				 }
+
+				 @endforeach
+
+				 @foreach ($sub_cats as $item)
 
 				 if (new_name.value == '{{$item->name}}') {
 				 	error += new_name.value + " Already Exists";

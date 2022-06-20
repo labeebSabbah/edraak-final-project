@@ -7,16 +7,16 @@
 </head>
 <body>
 	<ol>
-		<form method="get" action="/deleteCat" class="deleteForms">
+		<form method="get" action="/deleteMain" class="deleteForms">
 			@foreach ($mainCat as $item)
-				<li name='{{$item->name}}' class='names'>{{$item->name}}</li>
+				<li name='{{$item->name}}' class='names'>{{$item->name}}</li><a href="/createSub?id={{$item->id}}">Add</a>
 				<button type='submit' name='name' value='{{$item->name}}'>Delete</button>
 				<a href="/updateCat/{{$item->name}}">Update</a>
 			@endforeach
 		</form>
 	</ol>
 	<ol>
-		<form method="get" action="/deleteCat" class="deleteForms">
+		<form method="get" action="/deleteSub" class="deleteForms">
 			@foreach ($subCat as $item)
 				<li name='{{$item->name}}' class='names'>{{$item->name}}</li>
 				<button type='submit' name='name' value='{{$item->name}}'>Delete</button>
@@ -24,14 +24,6 @@
 			@endforeach
 		</form>
 	</ol>
-	<form method="get" action="/createCat" id="addForm">
-		<label for="name">Enter Category Name : </label>
-		<input type="text" name="name" id="name"> <br>
-		<label for="main">Is It A Main Category ?</label>
-		<input type="radio" name="main" value="1">Yes
-		<input type="radio" name="main" value="0" checked>No
-		<button type="submit">Add</button>
-	</form>
 
 	<script type="text/javascript">
 

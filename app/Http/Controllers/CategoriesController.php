@@ -10,22 +10,36 @@ class CategoriesController extends Controller
 {
 
     public function show() {
-        $mainCat = DB::select('SELECT * FROM categories WHERE is_main = true');
-        $subCat = DB::select('SELECT * FROM categories WHERE is_main = false');
+        $mainCat = DB::select('SELECT * FROM main_categories');
+        $subCat = DB::select('SELECT * FROM sub_categories');
         return view('categories.showCategories', ['mainCat' => $mainCat, 'subCat' => $subCat]);
     }
 
-    public function create(Request $request) {
+    public function addMain(Request $request) {
         $name = $request->input('name');
         $name = htmlspecialchars($name);
-        DB::table('categories')->insert(['name' => $name, 'is_main' => $request->input('main')]);
+        DB::table('main_categories')->insert(['name' => $name]);
         return redirect('/categories');
     }
 
-    public function delete(Request $request) {
+    public function addSub(Request $request) {
         $name = $request->input('name');
         $name = htmlspecialchars($name);
-        DB::table('categories')->where('name', '=', $name)->delete();
+        DB::table('sub_categories')->insert(['name' => $name, 'main_id' => $request->id]);
+        return redirect('/categories');
+    }
+
+    public function deleteMain(Request $request) {
+        $name = $request->input('name');
+        $name = htmlspecialchars($name);
+        DB::table('main_categories')->where('name', '=', $name)->delete();
+        return redirect('/categories');
+    }
+
+    public function deleteSub(Request $request) {
+        $name = $request->input('name');
+        $name = htmlspecialchars($name);
+        DB::table('sub_categories')->where('name', '=', $name)->delete();
         return redirect('/categories');
     }
 

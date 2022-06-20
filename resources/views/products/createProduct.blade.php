@@ -11,32 +11,32 @@
 		@csrf
 		<div>
 			<label for="name">Enter Name</label><br>
-			<input class="w-full" type="text" name="name" id="prodName" required>
+			<input style="color: black;" class="w-full" type="text" name="name" required>
 		</div>
 
 		<div class="mt-4">
 			<label for="desc">Enter Description</label><br>
-			<input class="w-full" type="text" name="desc" id="prodDesc" required>
+			<input style="color: black;" class="w-full" type="text" name="desc" required>
 		</div>
 		
 		<div class="mt-4">
 			<label for="price">Enter Price</label><br>
-			<input class="w-full" type="number" name="price" id="prodPrice" required>
+			<input style="color: black;" class="w-full" type="number" name="price" id="prodPrice" required>
 		</div>
 
 		<div class="mt-4">
 			<label for="size">Enter Size</label><br>
-			<input class="w-full" type="text" name="size">
+			<input style="color: black;" class="w-full" type="text" name="size">
 		</div>
 
 		<div class="mt-4">
 			<label for="return">Enter Return Policy (optional)</label><br>
-			<input class="w-full" type="text" name="return">
+			<input style="color: black;" class="w-full" type="text" name="return">
 		</div>
 
 		<div class="mt-4"> 
 			<label for="image">Image</label><br>
-			<input class="w-full" type="file" name="image" required>
+			<input style="color: black;" class="w-full" type="file" name="image" required>
 		</div>
 
 		<div class="mt-4">
@@ -52,9 +52,10 @@
 			<input type="checkbox" name="subCats[]" value="{{$item->name}}">
 			@endforeach
 		</div>
-		<br>
-		<button type="submit" class="w-full bg-green-500 py-3">Add Product</button><br>
-		<button class="w-full bg-red-600 py-3" onclick="history.back()">Cancel</button>
+		<div class="mt-4">
+			<button type="submit" class="w-full bg-green-500 py-3">Add Product</button><br>
+			<button class="w-full bg-red-600 py-3" onclick="history.back()">Cancel</button>
+		</div>
 	</form>
 
 	<script type="text/javascript">

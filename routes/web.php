@@ -45,6 +45,10 @@ Route::middleware('adminstration')->group(function () {
 
     Route::get('/createSub/add', [CategoriesController::class, 'addSub']);
 
+    Route::get('/createMain', function () {
+        return view('categories.createMainCat');
+    });
+
     Route::get('/createMain/add', [CategoriesController::class, 'addMain']);
 
     Route::get('/createProd', function () {
@@ -55,9 +59,8 @@ Route::middleware('adminstration')->group(function () {
 
     Route::post('/createProd/add', [ProductsController::class, 'create']);
 
-    Route::get('/deleteMain', [CategoriesController::class, 'deleteMain']);
+    Route::get('/deleteCat', [CategoriesController::class, 'delete']);
 
-    Route::get('/deleteSub', [CategoriesController::class, 'deleteSub']);
 
     Route::get('/deleteProd', [ProductsController::class, 'delete']);
 

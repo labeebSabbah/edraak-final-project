@@ -29,16 +29,11 @@ class CategoriesController extends Controller
         return redirect('/categories');
     }
 
-    public function deleteMain(Request $request) {
+    public function delete(Request $request) {
         $name = $request->input('name');
         $name = htmlspecialchars($name);
-        DB::table('main_categories')->where('name', '=', $name)->delete();
-        return redirect('/categories');
-    }
-
-    public function deleteSub(Request $request) {
-        $name = $request->input('name');
-        $name = htmlspecialchars($name);
+        DB::table('main_categories')->where('id', '=', $name)->delete();
+        DB::table('sub_categories')->where('main_id', '=', $name)->delete();
         DB::table('sub_categories')->where('name', '=', $name)->delete();
         return redirect('/categories');
     }
@@ -47,7 +42,8 @@ class CategoriesController extends Controller
         $new_name = $request->input('new_name');
         $name = $request->input('name');
         $new_name = htmlspecialchars($new_name);
-        DB::table('categories')->where('name', '=', $name)->update(['name' => $new_name]);
+        DB::table('main_categories')->where('name', '=', $name)->update(['name' => $new_name]);
+        DB::table('sub_categories')->where('name', '=', $name)->update(['name' => $new_name]);
         return redirect('/categories');
     }
 

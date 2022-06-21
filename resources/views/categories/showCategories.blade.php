@@ -6,17 +6,18 @@
 	<title>Categories</title>
 </head>
 <body>
+	<a href="/createMain">Add</a>
 	<ol>
-		<form method="get" action="/deleteMain" class="deleteForms">
+		<form method="get" action="/deleteCat" class="deleteForms">
 			@foreach ($mainCat as $item)
 				<li name='{{$item->name}}' class='names'>{{$item->name}}</li><a href="/createSub?id={{$item->id}}">Add</a>
-				<button type='submit' name='name' value='{{$item->name}}'>Delete</button>
+				<button type='submit' name='name' value='{{$item->id}}'>Delete</button>
 				<a href="/updateCat/{{$item->name}}">Update</a>
 			@endforeach
 		</form>
 	</ol>
 	<ol>
-		<form method="get" action="/deleteSub" class="deleteForms">
+		<form method="get" action="/deleteCat" class="deleteForms">
 			@foreach ($subCat as $item)
 				<li name='{{$item->name}}' class='names'>{{$item->name}}</li>
 				<button type='submit' name='name' value='{{$item->name}}'>Delete</button>

@@ -61,7 +61,6 @@ Route::middleware('adminstration')->group(function () {
 
     Route::get('/deleteCat', [CategoriesController::class, 'delete']);
 
-
     Route::get('/deleteProd', [ProductsController::class, 'delete']);
 
     Route::get('/updateCat/{name}', function ($name) {
@@ -69,6 +68,10 @@ Route::middleware('adminstration')->group(function () {
     });
 
     Route::get('/updateCat', [CategoriesController::class, 'update']);
+
+    Route::get('/orders', function() {
+        return view('orders.viewOrders');
+    });
 
 });
  

@@ -10,7 +10,7 @@ class ProductsController extends Controller
 {
 
     public function show() {
-        return view('products.showProducts', ['products' => DB::table('products')->paginate(2)]);
+        return view('products.showProducts', ['products' => DB::table('products')->paginate(15)]);
     }
 
     public function create(Request $request) {

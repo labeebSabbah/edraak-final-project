@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('return_policy')->nullable();
             $table->string('image');
             $table->boolean('is_deleted')->default(false);
+            $table->string('main_category');
+            $table->string('sub_categories');
         });
     }
 

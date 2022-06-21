@@ -4,8 +4,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Categories</title>
+	<link rel="stylesheet" type="text/css" href="./css/app.css">
 </head>
 <body>
+	@include('components.admin-nav')
 	<a href="/createMain">Add</a>
 	<ol>
 		<form method="get" action="/deleteCat" class="deleteForms">

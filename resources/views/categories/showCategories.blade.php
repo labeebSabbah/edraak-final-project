@@ -28,29 +28,8 @@
 
 	<script type="text/javascript">
 
-			const name = document.getElementById('name');
-			const addForm = document.getElementById('addForm');
 			const names = document.getElementsByClassName('names');
 			const deleteForms = document.getElementsByClassName('deleteForms');
-
-			addForm.addEventListener('submit', function (e) {
-				let error = '';
-				if (name.value == "") {
-					error += "Enter A Name";
-				} else {
-				for (let i = 0; i < names.length; i++) {
-					if (name.value == names[i].innerHTML) {
-						error += names[i].innerHTML + " Already Exists";
-						break;
-					}
-				}}
-				if (error) {
-					e.preventDefault();
-					alert(error);
-				} else {
-					alert("Category Added Successfully");
-				}
-			});
 
 			for (let i = 0; i < deleteForms.length; i++) {
 				deleteForms[i].addEventListener('submit', function (e) {

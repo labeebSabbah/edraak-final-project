@@ -21,12 +21,19 @@
 		
 		<div class="mt-4">
 			<label for="price">Enter Price</label><br>
-			<input style="color: black;" class="w-full" type="number" name="price" id="prodPrice" required>
+			<input style="color: black;" class="w-full" type="number" name="price" id="prodPrice" step="0.01" required>
 		</div>
 
 		<div class="mt-4">
-			<label for="size">Enter Size</label><br>
-			<input style="color: black;" class="w-full" type="text" name="size">
+			<label for="size">Select Size</label><br>
+			<select style="color: black;" class="w-full" name="size">
+				<option></option>
+				<option>S</option>
+				<option>M</option>
+				<option>L</option>
+				<option>XL</option>
+				<option>XXL</option>
+			</select>
 		</div>
 
 		<div class="mt-4">

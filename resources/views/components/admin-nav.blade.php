@@ -10,7 +10,11 @@
       		<a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">Orders</a>
     	</li>
     	<li class="relative">
-      		<a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="{{ route('logout') }}" data-mdb-ripple="true" data-mdb-ripple-color="dark">Logout</a>
+    		<form method="POST" action="{{ route('logout') }}">
+    			@csrf
+      	<x-dropdown-link :href="route('logout')" class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="dark" onclick="event.preventDefault(); this.closest('form').submit();">
+                                {{ __('Log Out') }}
+             </x-dropdown-link></form>
     	</li>
   	</ul>
 </div>

@@ -32,9 +32,14 @@ class CategoriesController extends Controller
     public function delete(Request $request) {
         $name = $request->input('name');
         $name = htmlspecialchars($name);
-        DB::table('main_categories')->where('id', '=', $name)->delete();
-        DB::table('sub_categories')->where('main_id', '=', $name)->delete();
-        DB::table('sub_categories')->where('name', '=', $name)->delete();
+        if (DB::table('sub_categories')->where('name', '=', $name)->delete()) {
+            
+        } else {
+            DB::table('main_categories')->where('id', '=', $name)->delete();
+            DB::table('sub_categories')->where('main_id', '=', $name)->delete();
+        }
+        
+        
         return redirect('/categories');
     }
 

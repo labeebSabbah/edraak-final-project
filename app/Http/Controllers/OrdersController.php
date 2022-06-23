@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Providers\RouteServiceProvider;
 
+session_start();
+
 class OrdersController extends Controller
 {
     public function placeOrder() {

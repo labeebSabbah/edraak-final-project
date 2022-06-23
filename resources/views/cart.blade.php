@@ -22,6 +22,7 @@ $total = 0;
 			@endforeach
 		</ol>
 		<p>Total = {{$total}}</p>
+		<a href="/checkout"><button>Checkout</button></a>
 	@endif
 </body>
 </html>

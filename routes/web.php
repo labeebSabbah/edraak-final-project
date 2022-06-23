@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Middleware\Adminstration;
 
 /*
@@ -28,6 +29,12 @@ Route::get('/removeItem', [MainController::class, 'removeItem']);
 Route::get('/cart', function() {
     return view('cart');
 });
+
+Route::get('/checkout', function () {
+    return view('checkout');
+});
+
+Route::post('/checkout/placeOrder', [OrdersController::class, 'placeOrder']);
 
 Route::middleware('adminstration')->group(function () {
 

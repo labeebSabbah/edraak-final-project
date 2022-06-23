@@ -8,6 +8,7 @@
 </head>
 <body>
 	<form method="POST" action="/checkout/placeOrder">
+		@csrf
 		<div>
 			<label for="address1">Address Line 1</label>
 			<input type="text" name="address1" required>

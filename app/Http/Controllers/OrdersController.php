@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Providers\RouteServiceProvider;
 
 class OrdersController extends Controller
 {
@@ -29,6 +30,6 @@ class OrdersController extends Controller
             'status' => $status
         ]);
 
-        return redirect('/');
+        return redirect(RouteServiceProvider::HOME);
     }
 }

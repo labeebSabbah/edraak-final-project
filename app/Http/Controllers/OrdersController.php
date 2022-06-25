@@ -25,6 +25,7 @@ class OrdersController extends Controller
 
         DB::table('orders')->insert([
             'customerName' => $name,
+            'created_at' => date("Y-m-d"),
             'numberOfItems' => $numberOfItems,
             'items' => serialize($cart),
             'total' => $total,

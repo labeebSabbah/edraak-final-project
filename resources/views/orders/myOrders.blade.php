@@ -13,7 +13,7 @@
 	@else 
 	<ol>
 		@foreach ($orders as $item)
-		<li>{{$item['id']}} {{$item['created_at']}}  {{$item['status']}} {{$item['total']}}</li>
+		<li>{{$item->id}} {{$item->created_at}}  {{$item->status}} {{$item->total}}</li>
 		@endforeach
 	</ol>
 	@endif

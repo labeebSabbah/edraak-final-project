@@ -38,6 +38,10 @@ Route::post('/checkout/placeOrder', [OrdersController::class, 'placeOrder']);
 
 Route::get('/myOrders', [OrdersController::class, 'getOrders']);
 
+Route::get('/myOrders/{id}', function ($name) {
+    return view('orders.orderDetails', ['order' => DB::table('orders')->where('id', '=', $id)]);
+});
+
 Route::middleware('adminstration')->group(function () {
 
     Route::get('/admin', function () {

@@ -42,7 +42,7 @@ class OrdersController extends Controller
         if ($admin == true) {
             return view('orders.viewOrders', ['orders' => DB::table('orders')->paginate(15)]);
         } else {
-            return view('orders.myOrders', ['orders' => DB::table('orders')->where('name', '=', $name)->paginate(15)]);
+            return view('orders.myOrders', ['orders' => DB::table('orders')->where('customerName', '=', $name)->paginate(15)]);
         }
     }
 }

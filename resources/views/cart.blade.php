@@ -11,6 +11,10 @@ $total = 0;
 	<title>Cart</title>
 </head>
 <body>
+	<?php if (isset($message)) {
+		echo "<p>{$message}</p>";
+	} ?>
+	<a href="/myOrders">My Orders</a>
 	@if (count($cart) == 0)
 		<h2>Your Cart Is Empty</h2>
 		<a href="/"><button>Add Products</button></a>

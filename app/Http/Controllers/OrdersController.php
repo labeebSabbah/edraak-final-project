@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Providers\RouteServiceProvider;
 
 session_start();
 
@@ -32,6 +31,18 @@ class OrdersController extends Controller
             'status' => $status
         ]);
 
-        return redirect(RouteServiceProvider::HOME);
+        $_SESSION['cart'] = [];
+
+        return redirect()->route('cart', ['message' => 'Ordered Successfully']);
+    }
+
+    public function getOrders() {
+        $name = Auth::user()->name;
+        $admin = DB::table('users')->where('name', $name)->value('is_admin');
+        if ($admin == true) {
+            return view('orders.viewOrders', ['orders' => DB::table('orders')->paginate(15)]);
+        } else {
+            return view('orders.myOrders', ['orders' => DB::table('orders')->where('name', '=', $name)->paginate(15)]);
+        }
     }
 }

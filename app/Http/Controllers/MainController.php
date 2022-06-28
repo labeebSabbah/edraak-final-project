@@ -51,4 +51,12 @@ class MainController extends Controller
         return redirect('/cart');
     }
 
+    public function search(Request $request) {
+        $search_name = $request->input('name');
+        $search_name = htmlspecialchars($search_name);
+        $search_name = DB::connection()->getPdo()->quote($search_name);
+        $items = DB::select("SELECT * FROM products WHERE (name like '%".$search_name."%'");
+        return view('welcome', ['products' => $items]);
+    }
+
 }

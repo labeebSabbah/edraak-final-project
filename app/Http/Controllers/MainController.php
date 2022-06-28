@@ -55,7 +55,7 @@ class MainController extends Controller
         $search_name = $request->input('search');
         $search_name = htmlspecialchars($search_name);
         $search_name = DB::connection()->getPdo()->quote($search_name);
-        $items = DB::select("SELECT * FROM products WHERE $search_name ~ name");
+        $items = DB::select("SELECT * FROM products WHERE $search_name ~ name")->paginate(15);
         return view('welcome', ['products' => $items, 'search' => $search_name, 'mainCats' => DB::select('SELECT * FROM main_categories')]);
     }
 

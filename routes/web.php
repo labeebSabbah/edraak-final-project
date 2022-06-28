@@ -22,27 +22,30 @@ use App\Http\Middleware\Adminstration;
 
 Route::get('/', [MainController::class, 'all'])->name('home');
 
-Route::get('/addItem', [MainController::class, 'addItem']);
+Route::middleware('auth')->group(function () {
 
-Route::get('/removeItem', [MainController::class, 'removeItem']);
+    Route::get('/addItem', [MainController::class, 'addItem']);
 
-Route::get('/cart', function() {
-    return view('cart');
-})->name('cart');
-
-Route::get('/checkout', function () {
-    return view('checkout');
+    Route::get('/removeItem', [MainController::class, 'removeItem']);
+    
+    Route::get('/cart', function() {
+        return view('cart');
+    })->name('cart');
+    
+    Route::get('/checkout', function () {
+        return view('checkout');
+    });
+    
+    Route::post('/checkout/placeOrder', [OrdersController::class, 'placeOrder']);
+    
+    Route::get('/myOrders', [OrdersController::class, 'getOrders']);
+    
+    Route::get('/myOrders/{id}', function ($name) {
+        return view('orders.orderDetails', ['order' => DB::table('orders')->where('id', '=', $id)]);
+    });
 });
 
-Route::post('/checkout/placeOrder', [OrdersController::class, 'placeOrder']);
-
-Route::get('/myOrders', [OrdersController::class, 'getOrders']);
-
-Route::get('/myOrders/{id}', function ($name) {
-    return view('orders.orderDetails', ['order' => DB::table('orders')->where('id', '=', $id)]);
-});
-
-Route::middleware('adminstration')->group(function () {
+Route::middleware('adminstration', 'auth')->group(function () {
 
     Route::get('/admin', function () {
     return view('admin');

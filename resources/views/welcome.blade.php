@@ -1,5 +1,8 @@
 <?php 
 $cart = $_SESSION['cart'] ?? array();
+if (!isset($search)) {
+    $search = "";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +17,10 @@ $cart = $_SESSION['cart'] ?? array();
     <a href="/cart">Show Cart </a><?php echo count($cart);?><br>
     <a href="/login">Login</a>
     <a href="/register">Register</a>
+    <form method="get" action="/search">
+        <input type="text" name="search" value="{{$search}}">
+        <button type="submit">Search</button>
+    </form>
     <div style="margin: 0 auto;">
         @foreach ($mainCats as $item)
         <span>{{$item->name}} </span>

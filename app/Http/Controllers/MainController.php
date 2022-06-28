@@ -52,11 +52,11 @@ class MainController extends Controller
     }
 
     public function search(Request $request) {
-        $search_name = $request->input('name');
+        $search_name = $request->input('search');
         $search_name = htmlspecialchars($search_name);
         $search_name = DB::connection()->getPdo()->quote($search_name);
         $items = DB::select("SELECT * FROM products WHERE (name like '%".$search_name."%'");
-        return view('welcome', ['products' => $items]);
+        return view('welcome', ['products' => $items, 'search' => $search_name]);
     }
 
 }

@@ -22,6 +22,8 @@ use App\Http\Middleware\Adminstration;
 
 Route::get('/', [MainController::class, 'all'])->name('home');
 
+Route::get('/search', [MainController::class, 'search']);
+
 Route::middleware('auth')->group(function () {
 
     Route::get('/addItem', [MainController::class, 'addItem']);

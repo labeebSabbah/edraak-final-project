@@ -30,11 +30,8 @@
     			</li>
   			</ul>
   		</form>
+  		{{ $products->links() }}
 	</div>
-	
-
-	{{ $products->links() }}
-</div>
 
 	<script type="text/javascript">
 

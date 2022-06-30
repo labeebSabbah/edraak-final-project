@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
 </head>
 <body>
+	
 	@include('components.admin-nav')
 	<div class="flex justify-center" id="main">
 		<a href="/createProd"><button>Add</button></a>

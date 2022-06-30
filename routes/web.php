@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::middleware('adminstration', 'auth')->group(function () {
+Route::middleware('adminstration')->group(function () {
 
     Route::get('/admin', function () {
     return view('admin');

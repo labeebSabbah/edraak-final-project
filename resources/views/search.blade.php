@@ -7,10 +7,10 @@
 	<title>Search</title>
 </head>
 <body>
-	@if ($count == 0)
-	<h2>No Product Match The Search</h2>
-	@else
+	@if ($products)
 	@include('components.productsView')
+	@else
+	<h2>No Product Match The Search</h2>
 	@endif
 </body>
 </html>

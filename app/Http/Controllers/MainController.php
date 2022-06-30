@@ -55,7 +55,8 @@ class MainController extends Controller
         $search_name = $request->input('search');
         $search_name = htmlspecialchars($search_name);
         $items = DB::table('products')->where('name', 'like', '%' . $search_name . '%')->paginate(15);
-        return view('welcome', ['products' => $items, 'search' => $search_name, 'mainCats' => DB::select('SELECT * FROM main_categories')]);
+        $count = DB::table('products')->where('name', 'like', '%' . $search_name . '%')->get();
+        return view('search', ['products' => $items, 'search' => $search_name, 'count' => $count]);
     }
 
 }

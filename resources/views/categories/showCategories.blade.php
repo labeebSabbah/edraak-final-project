@@ -18,18 +18,18 @@
     				<span>{{$main->id}}</span>
     				<span style="margin-left: 20px;">{{$main->name}}</span>
     				<span style="float: right; display: block;">
-    					<a href="/createSub?id={{$main->id}}"><button>Add</button></a>
-    					<a href="/updateCat/{{$main->name}}"><button>Update</button></a>
+    					<a href="/createSub?id={{$main->id}}"><button type="button">Add</button></a>
+    					<a href="/updateCat/{{$main->name}}"><button type="button">Update</button></a>
     					<button type='submit' name='name' value='{{$main->id}}'>Delete</button>
     				</span>
-    				<ul>
+    				<ul style="margin: auto;margin-top: 0.5em; width: 70%;">
     					@foreach ($subCat as $sub)
     					@if ($sub->main_id == $main->id)
     					<li>
     						<span style="margin-left: 20px;">{{$sub->name}}</span>
     						<span style="float: right; display: block;">
-    							<a href="/updateCat/{{$sub->name}}"><button>Update</button></a>
-    							<button type='submit' name='name' value='{{$sub->id}}'>Delete</button>
+    							<a href="/updateCat/{{$sub->name}}"><button type="button">Update</button></a>
+    							<button type='submit' name='name' value='{{$sub->name}}'>Delete</button>
     						</span>
     					</li>
     					@endif
@@ -41,24 +41,6 @@
   			</ul>
 	</div>
 
-	<script type="text/javascript">
-
-			const deleteForms = document.getElementsByClassName('deleteForms');
-
-			for (let i = 0; i < deleteForms.length; i++) {
-				deleteForms[i].addEventListener('submit', function (e) {
-					var error = '';
-					var choice = confirm('Are You Sure That You Want To Delete It ?');
-					if (!choice) {
-						e.preventDefault();
-					} else {
-						alert("Category Deleted Successfully");
-					}
-					if (error) {
-						alert(error);
-					}
-				});
-			}
-	</script>
+	<script type="text/javascript" src="./js/confirm.js"></script>
 </body>
 </html>

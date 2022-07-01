@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::middleware('adminstration')->group(function () {
+Route::middleware('adminstration', 'auth')->group(function () {
 
     Route::get('/admin', function () {
     return view('admin');
@@ -87,9 +87,7 @@ Route::middleware('adminstration')->group(function () {
 
     Route::get('/updateCat', [CategoriesController::class, 'update']);
 
-    Route::get('/orders', function() {
-        return view('orders.viewOrders');
-    });
+    Route::get('/orders', [OrdersController::class, 'getOrders']);
 
 });
  

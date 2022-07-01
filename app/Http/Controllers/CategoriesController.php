@@ -17,21 +17,18 @@ class CategoriesController extends Controller
 
     public function addMain(Request $request) {
         $name = $request->input('name');
-        $name = htmlspecialchars($name);
         DB::table('main_categories')->insert(['name' => $name]);
         return redirect('/categories');
     }
 
     public function addSub(Request $request) {
         $name = $request->input('name');
-        $name = htmlspecialchars($name);
         DB::table('sub_categories')->insert(['name' => $name, 'main_id' => $request->id]);
         return redirect('/categories');
     }
 
     public function delete(Request $request) {
         $name = $request->input('name');
-        $name = htmlspecialchars($name);
         if (DB::table('sub_categories')->where('name', '=', $name)->delete()) {
             
         } else {
@@ -46,7 +43,6 @@ class CategoriesController extends Controller
     public function update(Request $request) {
         $new_name = $request->input('new_name');
         $name = $request->input('name');
-        $new_name = htmlspecialchars($new_name);
         DB::table('main_categories')->where('name', '=', $name)->update(['name' => $new_name]);
         DB::table('sub_categories')->where('name', '=', $name)->update(['name' => $new_name]);
         return redirect('/categories');

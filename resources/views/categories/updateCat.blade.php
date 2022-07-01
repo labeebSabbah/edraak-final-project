@@ -2,8 +2,9 @@
 	use Illuminate\Support\Facades\DB;
 
 	$main_cats = DB::select('SELECT * FROM main_categories');
-	$id = DB::table('sub_categories')->where('name', $name)->value('main_id');
-	$sub_cats = DB::select("SELECT * FROM sub_categories WHERE main_id = {$id}");
+	if ($id = DB::table('sub_categories')->where('name', $name)->value('main_id')) {
+		$sub_cats = DB::select("SELECT * FROM sub_categories WHERE main_id = {$id}");
+	}
 ?>
 <!DOCTYPE html>
 <html>

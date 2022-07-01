@@ -18,7 +18,7 @@
     				<img src="{{asset('uploads/'.$product->image)}}" style="display: inline;" width="50" height="50" >
     				<span style="margin-left: 20px;">{{$product->name}}</span>
     				<span style="float: right; margin-top: 10px;">
-    					<a href="/updateProd/{{$product->name}}"><button>Update</button></a>
+    					<a href="/updateProd/{{$product->name}}"><button type="button">Update</button></a>
     					<button type="submit" name="name" value="{{$product->name}}">Delete</button>
     				</span>
     			</li>

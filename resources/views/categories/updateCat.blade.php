@@ -36,7 +36,7 @@
 
 				 @endforeach
 
-				 @if ($sub_cats)
+				 @if (isset($sub_cats))
 
 				 @foreach ($sub_cats as $item)
 

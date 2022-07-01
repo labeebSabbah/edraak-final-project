@@ -47,11 +47,7 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::middleware('adminstration', 'auth')->group(function () {
-
-    Route::get('/admin', function () {
-    return view('admin');
-    })->name('admin'); 
+Route::middleware('adminstration', 'auth')->group(function () { 
 
     Route::get('/categories', [CategoriesController::class, 'show']);
 

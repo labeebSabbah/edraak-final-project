@@ -12,11 +12,24 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Update Category</title>
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<style type="text/css">
+		#updateForm {
+			margin-top: 10%;
+		}
+	</style>
 </head>
-<body>
-	<form method="get" action="/updateCat" id="updateForm">
-		<input type="text" name="new_name" id="new_name">
-		<button type="submit" name="name" value='{{$name}}'>Update</button>
+<body style="color: white;" bgcolor="black">
+	<form method="get" action="/updateCat" id="updateForm" class="container m-auto w-6/12">
+		@csrf
+		<div>
+			<label for="name">Enter Name</label><br>
+			<input style="color: black;" class="w-full" type="text" name="new_name" id="new_name" required>
+		</div>
+		<div class="mt-4">
+			<button type="submit" class="w-full bg-green-500 py-3" name="name" value="{{$name}}">Update Category</button><br>
+			<button class="w-full bg-red-600 py-3" onclick="history.back()">Cancel</button>
+		</div>
 	</form>
 	<script type="text/javascript">
 

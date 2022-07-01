@@ -10,7 +10,7 @@ class ProductsController extends Controller
 {
 
     public function show() {
-        return view('products.showProducts', ['products' => DB::table('products')->paginate(15)]);
+        return view('products.showProducts', ['products' => DB::table('products')->where('is_deleted', '=' , false)->paginate(15)]);
     }
 
     public function create(Request $request) {
@@ -44,8 +44,25 @@ class ProductsController extends Controller
     }
 
     public function delete(Request $request) {
-        $name = $request->name;
-        DB::table('products')->where('name', '=', $name)->delete();
+        $id = $request->id;
+        $ordered = 0;
+        $orders = DB::table('orders')->get();
+        foreach ($orders as $order) {
+            foreach (unserialize($order->items) as $item) {
+                if ($item['id'] == $id) {
+                    $ordered = 1;
+                    break;
+                }
+            }
+            if ($ordered) {
+                break;
+            }
+        }
+        if ($ordered) {
+            DB::table('products')->where('id' , '=', $id)->update(['is_deleted'=>true]);
+        } else {
+            DB::table('products')->where('id', '=', $id)->delete();
+        }
         return redirect('/products');
     }
 

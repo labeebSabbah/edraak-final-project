@@ -15,11 +15,11 @@
   				<form method="get" action="/deleteProd" id="deleteForm">
     			@foreach ($products as $product)
     			<li class="px-6 py-2 border-b border-gray-200 w-full">
-    				<img src="{{asset('uploads/'.$product->image)}}" style="display: inline;" width="50" height="50" >
+    				<img src="{{asset('uploads/'.$product->image)}}" style="display: inline;" width="50px" height="50px" >
     				<span style="margin-left: 20px;">{{$product->name}}</span>
     				<span style="float: right; margin-top: 10px;">
-    					<a href="/updateProd/{{$product->name}}"><button type="button">Update</button></a>
-    					<button type="submit" name="name" value="{{$product->name}}">Delete</button>
+    					<a href="/updateProd/{{$product->id}}"><button type="button">Update</button></a>
+    					<button type="submit" name="id" value="{{$product->id}}">Delete</button>
     				</span>
     			</li>
     			@endforeach

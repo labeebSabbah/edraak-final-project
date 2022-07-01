@@ -12,7 +12,7 @@ class MainController extends Controller
 
     public function all() {
         return view('welcome', [
-            'products' => DB::table('products')->paginate(15),
+            'products' => DB::table('products')->where('is_deleted', '=', false)->paginate(15),
             'mainCats' => DB::select('SELECT * FROM main_categories')
         ]);
     }

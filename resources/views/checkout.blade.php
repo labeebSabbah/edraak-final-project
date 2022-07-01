@@ -31,7 +31,7 @@
 		</div>
 		<div class="mt-4">
 			<label for="postal">Postal Code</label>
-			<input type="number" name="postal" required>
+			<input type="number" name="postal" min="0" required>
 		</div>
 		<div class="mt-4">
 			<label for="payment">Select Payment Method</label><br>

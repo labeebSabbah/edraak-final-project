@@ -40,8 +40,7 @@ class OrdersController extends Controller
     public function getOrders() {
         $name = Auth::user()->name;
         $admin = DB::table('users')->where('name', $name)->value('is_admin');
-        $admin = true;
-        if ($admin == true) {
+        if ($admin) {
             return view('orders.viewOrders', ['orders' => DB::table('orders')->paginate(15)]);
         } else {
             return view('orders.myOrders', ['orders' => DB::table('orders')->where('customerName', '=', $name)->paginate(15)]);

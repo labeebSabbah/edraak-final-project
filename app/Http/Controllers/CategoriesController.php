@@ -43,8 +43,11 @@ class CategoriesController extends Controller
     public function update(Request $request) {
         $new_name = $request->input('new_name');
         $name = $request->input('name');
-        DB::table('main_categories')->where('name', '=', $name)->update(['name' => $new_name]);
-        DB::table('sub_categories')->where('name', '=', $name)->update(['name' => $new_name]);
+        if (DB::table('main_categories')->where('name', '=', $name)->update(['name' => $new_name])) {
+
+        } else {
+            DB::table('sub_categories')->where('name', '=', $name)->update(['name' => $new_name]);
+        }
         return redirect('/categories');
     }
 

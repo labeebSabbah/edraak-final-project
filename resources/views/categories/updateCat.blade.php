@@ -36,6 +36,8 @@
 
 				 @endforeach
 
+				 @if ($sub_cats)
+
 				 @foreach ($sub_cats as $item)
 
 				 if (new_name.value == '{{$item->name}}') {
@@ -43,6 +45,8 @@
 				 }
 
 				 @endforeach
+
+				 @endif
 			}
 
 			if (error) {

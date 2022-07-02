@@ -24,8 +24,8 @@
     					<span style="margin-left: 78px;">Status</span>
     				</li>
     			@foreach ($orders as $order)
-    			<a href="#">
-    				<li class="px-6 py-2 border-b border-gray-200 w-full">
+    			<a href="/orders/{{$order->id}}">
+    				<li class="px-6 py-2 border-b border-gray-200 w-full hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out">
     					<span>{{$order->id}}</span>
     					<span>{{$order->customerName}}</span>
     					<span>{{$order->created_at}}</span>

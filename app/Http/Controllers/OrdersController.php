@@ -21,7 +21,7 @@ class OrdersController extends Controller
             $total = $item['quantity'] * floatval($item['price']);
         }
 
-        $status = "processing";
+        $status = "Processing";
 
         DB::table('orders')->insert([
             'customerName' => $name,
@@ -44,6 +44,14 @@ class OrdersController extends Controller
             return view('orders.viewOrders', ['orders' => DB::table('orders')->paginate(15)]);
         } else {
             return view('orders.myOrders', ['orders' => DB::table('orders')->where('customerName', '=', $name)->paginate(15)]);
+        }
+    }
+
+    public function updateStatus(Request $request) {
+        $id = $request->id;
+        $status = $request->status;
+        if (DB::table('orders')->where('id', '=', $id)->update(['status' => $status])) {
+            return redirect('/orders');
         }
     }
 }

@@ -24,7 +24,11 @@ Route::get('/', [MainController::class, 'all'])->name('home');
 
 Route::get('/search', [MainController::class, 'search']);
 
-Route::middleware('auth')->group(function () {
+Route::get('/dashboard', function() {
+    return view('dashboard');
+})->middleware('auth', 'verified')->name('dashboard');
+
+Route::middleware('auth', 'verified')->group(function () {
 
     Route::get('/addItem', [MainController::class, 'addItem']);
 
@@ -42,8 +46,8 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/myOrders', [OrdersController::class, 'getOrders']);
     
-    Route::get('/myOrders/{id}', function ($name) {
-        return view('orders.orderDetails', ['order' => DB::table('orders')->where('id', '=', $id)]);
+    Route::get('/myOrders/{id}', function ($id) {
+        return view('orders.orderDetails', ['order' => DB::table('orders')->where('id', '=', $id)->first(), 'admin' => false]);
     });
 });
 
@@ -84,6 +88,12 @@ Route::middleware('adminstration', 'auth')->group(function () {
     Route::get('/updateCat', [CategoriesController::class, 'update']);
 
     Route::get('/orders', [OrdersController::class, 'getOrders']);
+
+    Route::get('/orders/{id}', function ($id) {
+        return view('orders.orderDetails', ['order' => DB::table('orders')->where('id', '=', $id)->first(), 'admin' => true]); 
+    });
+
+    Route::get('/updateStatus', [OrdersController::class, 'updateStatus']);
 
 });
  

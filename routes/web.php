@@ -24,9 +24,7 @@ Route::get('/', [MainController::class, 'all'])->name('home');
 
 Route::get('/search', [MainController::class, 'search']);
 
-Route::get('/dashboard', function() {
-    return view('dashboard');
-})->middleware('auth', 'verified')->name('dashboard');
+Route::get('/dashboard', [MainController::class, 'redirectHome'])->middleware('auth', 'verified')->name('dashboard');
 
 Route::middleware('auth', 'verified')->group(function () {
 

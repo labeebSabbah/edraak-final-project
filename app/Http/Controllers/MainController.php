@@ -10,6 +10,10 @@ session_start();
 class MainController extends Controller
 {
 
+    public function redirectHome() {
+        return redirect('orders');
+    }
+
     public function all() {
         return view('welcome', [
             'products' => DB::table('products')->where('is_deleted', '=', false)->paginate(15),
@@ -52,9 +56,23 @@ class MainController extends Controller
     }
 
     public function search(Request $request) {
-        $search_name = $request->input('search');
+        $search_name = $request->input('search') ?? false;
         $search_name = htmlspecialchars($search_name);
-        $items = DB::table('products')->where('name', 'like', '%' . $search_name . '%')->paginate(15);
+        $mainCat = htmlspecialchars($request->mainCat ?? false);
+        $subCat = htmlspecialchars($request->subCat ?? false);
+        $min = htmlspecialchars($request->input('min') ?? false);
+        $max = htmlspecialchars($request->input('max') ?? false);
+        $items = DB::table('products')->where('is_deleted', false)->when($search_name, function ($q) use ($search_name) {
+            return $q->where('name', 'like', '%' . $search_name . '%');
+        })->when($mainCat, function ($q) use ($mainCat) {
+            return $q->where('main_category', $mainCat);
+        })->when($subCat, function ($q) use ($subCat) {
+            return $q->where('sub_categories', 'like', '%'. $subCat . '%');
+        })->when($min, function ($q) use ($min) {
+            return $q->where('price', '>', $min);
+        })->when($max, function ($q) use ($max) {
+            return $q->where('price', '<' ,$max);
+        })->paginate(15);
         return view('search', ['products' => $items, 'search' => $search_name]);
     }
 

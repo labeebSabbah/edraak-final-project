@@ -7,10 +7,15 @@
 	<title>Search</title>
 </head>
 <body>
-	@if ($products)
-	@include('components.productsView')
+	@include ('layouts.navigation')
+	<form method="get" action="/search" style="width: 20%; height: 100%; text-align: center;">
+		<p style="">Filter</p>
+	</form>
+	@if (count($products) != 0)
+	<div style="width: 80%; margin-left: 20%;">@include('components.productsView')</div>
 	@else
 	<h2>No Product Match The Search</h2>
 	@endif
+	<script type="text/javascript" src="./js/app.js"></script>
 </body>
 </html>

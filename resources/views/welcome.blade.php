@@ -33,10 +33,6 @@ if (!isset($search)) {
         <button type="submit">Search</button>
     </form>
     <div style="margin: 0 auto;">
-        @foreach ($mainCats as $item)
-        <span>{{$item->name}} </span>
-        @endforeach
-    </div>
     @include('components.productsView')
 </body>
 </html>

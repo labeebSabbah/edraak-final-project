@@ -27,6 +27,8 @@ class ProductsController extends Controller
             $file = $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file->move('uploads', $filename);
+        } else {
+            $filename = "No Image";
         }
         $mainCat = $request->input('mainCat');
         $subCats = serialize($request->input('subCats'));
@@ -67,7 +69,36 @@ class ProductsController extends Controller
     }
 
     public function update(Request $request) {
-
+        $id = $request->id;
+        $name = $request->input('name');
+        $name = htmlspecialchars($name);
+        $desc = $request->input('desc');
+        $desc = htmlspecialchars($desc);
+        $price = $request->input('price');
+        $price = htmlspecialchars($price);
+        $size = $request->input('size');
+        $return = $request->input('return');
+        $return = htmlspecialchars($return);
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file->move('uploads', $filename);
+        } else {    
+            $filename = "No Image";
+        }
+        $mainCat = $request->input('mainCat');
+        $subCats = serialize($request->input('subCats'));
+        DB::table('products')->where('id', $id)->update([
+            'name' => $name,
+            'description' => $desc,
+            'price' => $price,
+            'size' => $size,
+            'return_policy' => $return,
+            'image' => $filename,
+            'main_category' => $mainCat,
+            'sub_categories' => $subCats 
+        ]);
+        return redirect('/products');
     }
 
 }

@@ -85,6 +85,15 @@ Route::middleware('adminstration', 'auth')->group(function () {
 
     Route::get('/updateCat', [CategoriesController::class, 'update']);
 
+    Route::get('/updateProd/{id}', function($id) {
+        $product = DB::table('products')->where('id', $id)->get();
+        $mainCats = DB::select('SELECT * FROM main_categories');
+        $subCats = DB::select('SELECT * FROM sub_categories');
+        return view('products.createProduct', ['product' => $product, 'mainCats' => $mainCats, 'subCats' => $subCats]);
+    });
+
+    Route::post('/updateProd', [ProductsController::class, 'update']);
+
     Route::get('/orders', [OrdersController::class, 'getOrders']);
 
     Route::get('/orders/{id}', function ($id) {

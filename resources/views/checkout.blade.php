@@ -1,8 +1,3 @@
-<?php 
-use Symfony\Component\Intl\Countries;
-
-$countries = Countries::getNames();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,13 +27,7 @@ $countries = Countries::getNames();
 		</div>
 		<div class="mt-4">
 			<label for="country">Country</label>
-			<select name="country">
-				@foreach ($countries as $country)
-				@if ($country != "Israel")
-				<option value="{{$country}}">{{$country}}</option>
-				@endif
-				@endforeach
-			</select>
+			@include ('components.countryInput')
 		</div>
 		<div class="mt-4">
 			<label for="postal">Postal Code</label>

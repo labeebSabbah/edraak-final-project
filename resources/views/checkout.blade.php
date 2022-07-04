@@ -6,9 +6,9 @@
 	<title>Checkout</title>
 	<link rel="stylesheet" type="text/css" href="./css/app.css">
 </head>
-<body style="text-align: center;">
+<body style="text-align: center;" bgcolor="#1363DF">
 	@include ('layouts.navigation')
-	<form method="POST" action="/checkout/placeOrder">
+	<form method="POST" action="/checkout/placeOrder" style="width: 30%; margin: auto; background: #47B5FF;">
 		@csrf
 		<div>
 			<label for="address1">Address Line 1</label><br>
@@ -39,7 +39,7 @@
 			<span>Cash On Delivery</span><input type="radio" name="payment" checked>
 		</div>
 		<div class="mt-4">
-			<button type="submit">Confirm</button>
+			<button type="submit" style="border: 2px solid #06283D; background: #06283D; color: white;">Confirm</button>
 		</div>
 	</form>
 </body>

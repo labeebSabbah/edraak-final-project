@@ -6,8 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
 	<title>@if (!isset($product)) Add A New Product @else Update A Product @endif</title>
 </head>
-<body style="color: white" bgcolor="black">
-	<form method="post" <?php if (isset($product)) {echo 'action="/updateProd"';} else {echo 'action="/createProd/add"';} ?> id="addForm" enctype="multipart/form-data" class="container m-auto w-6/12">
+<body style="color: white" bgcolor="#1363DF">
+	<form method="post" <?php if (isset($product)) {echo 'action="/updateProd"';} else {echo 'action="/createProd/add"';} ?> id="addForm" enctype="multipart/form-data" class="container m-auto w-6/12" style="background-color: #47B5FF;">
 		@csrf
 		<div>
 			<label for="name">Enter Name</label><br>

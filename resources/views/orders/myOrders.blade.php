@@ -11,7 +11,7 @@
 		}
 	</style>
 </head>
-<body>
+<body bgcolor="#1363DF">
 	@include ('layouts.navigation')
 	@if (count($orders) == 0)
 	<h2>No Orders Yet</h2>

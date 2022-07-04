@@ -6,9 +6,28 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" type="text/css" href="/css/app.css"> -->
 	<title>Order #{{$order->id}}</title>
+	<style type="text/css">
+		table,tr,td {
+			background: #47B5FF;
+			border: 2px solid #06283D;
+		}
+		table {
+			border-radius: 6px;
+		}
+		h1 {
+			font-size: xx-large;
+		}
+		h2 {
+			font-size: x-large;
+		} h3 {
+			font-size: large;
+		}
+	</style>
 </head>
-<body>
+<body bgcolor="#1363DF">
+	
 	<?php $items = unserialize($order->items); $totalItems = 0; ?>
 	@include ('components.backIcon')
 	<table border="1px solid black" width="70%" style="text-align: center; margin: auto;">

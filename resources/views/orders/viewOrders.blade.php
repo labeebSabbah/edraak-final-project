@@ -11,7 +11,7 @@
 		}
 	</style>
 </head>
-<body>
+<body bgcolor="#1363DF">
 	@include('components.admin-nav')
 	@include ('components.ordersView')
 </body>

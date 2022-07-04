@@ -7,13 +7,21 @@
 	<title>Search</title>
 	<style type="text/css">
 		input,select {
+			color: #06283D;
 			margin-bottom: 20px;
+		}
+		button {
+			padding: 7px;
+			color: #DFF6FF;
+		}
+		button:active {
+			padding: 4px;
 		}
 	</style>
 </head>
-<body>
+<body style="font-size: large; text-align: center;" bgcolor="#1363DF">
 	@include ('layouts.navigation')
-	<form method="get" action="/search" style="width: 20%; height: 100%; border: 1px solid black; text-align: center; position: fixed; padding-top: 20px;" id="filter">
+	<form method="get" action="/search" style="width: 20%; height: 100%; border: 1px solid black; text-align: center; position: fixed; padding-top: 20px; background: #06283D; color: #DFF6DF;" id="filter">
 
 		<p style="font-size: x-large; margin-bottom: 20px;">Filter</p>
 

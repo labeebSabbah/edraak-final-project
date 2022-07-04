@@ -16,7 +16,7 @@ $total = 0;
 		}
 	</style>
 </head>
-<body style="text-align: center; font-size: x-large;">
+<body style="text-align: center;font-size: x-large;" bgcolor="#1363DF">
 	<?php if (isset($message)) {
 		echo "<p>{$message}</p>";
 	} ?>
@@ -27,10 +27,10 @@ $total = 0;
 	@if (count($cart) == 0)
 	<div style="margin-top: 200px;">
 		<h2 style="margin-bottom: 30px;">Your Cart Is Empty</h2>
-		<a href="/"><button>Add Products</button></a>
+		<a href="/"><button type="button" style="border: 2px solid #06283D; background: #06283D; padding: 6px; color: #DDF9DF;">Add Products</button></a>
 	</div>
 	@else
-		<table border="1px solid black" style="margin: auto;">
+		<table border="1px solid black" style="margin: auto; background: #47B5FF; border-radius: 7px;">
 			<tr>
 				<th>ID</th><th>Name</th><th>Price</th><th>Quantity</th><th>Total</th><th></th>
 			</tr>

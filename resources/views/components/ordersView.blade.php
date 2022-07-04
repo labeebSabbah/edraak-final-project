@@ -1,5 +1,5 @@
 <div class="flex justify-center">
-  			<ul class="bg-white rounded-lg border border-gray-200 text-gray-900 " style="width: 75%;  <?php if (Auth::user()->is_admin) {echo "margin-left: 15em";} else {echo "margin: auto";} ?>;">
+  			<ul class="bg-white rounded-lg border border-gray-200 text-gray-900 " style="width: 75%; background: #47B5FF;  <?php if (Auth::user()->is_admin) {echo "margin-left: 15em";} else {echo "margin: auto";} ?>;">
   				<li class="px-6 py-2 border-b border-gray-200 w-full">
     					<span>ID</span>
     					<span>Customer</span>

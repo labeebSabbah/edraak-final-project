@@ -11,7 +11,7 @@
 		}
 	</style>
 </head>
-<body style="color: white;" bgcolor="black">
+<body style="color: white;" bgcolor="#1363DF">
 	<form method="get" action="/createSub/add" id="createForm" class="container m-auto w-6/12">
 		@csrf
 		<div>

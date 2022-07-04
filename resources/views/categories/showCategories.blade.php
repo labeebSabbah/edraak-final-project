@@ -6,11 +6,11 @@
 	<title>Categories</title>
 	<link rel="stylesheet" type="text/css" href="./css/app.css">
 </head>
-<body>
+<body bgcolor="#1363DF">
 	@include('components.admin-nav')
 
 	<div class="flex justify-center">
-  			<ul class="bg-white rounded-lg border border-gray-200 text-gray-900 " style="width: 75%; margin-left: 15em;">
+  			<ul class="rounded-lg border border-gray-200 text-gray-900 " style="width: 75%; margin-left: 15em; background: #47B5FF;">
   				<li class="px-6 py-2 border-b border-gray-200 w-full"><a href="/createMain"><button>Add</button></a></li>
   				<form method="get" action="/deleteCat" id="deleteForm">
     			@foreach ($mainCat as $main)

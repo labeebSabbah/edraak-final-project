@@ -19,7 +19,7 @@
 		}
 	</style>
 </head>
-<body style="color: white;" bgcolor="black">
+<body style="color: white;" bgcolor="#1363DF">
 	<form method="get" action="/updateCat" id="updateForm" class="container m-auto w-6/12">
 		@csrf
 		<div>

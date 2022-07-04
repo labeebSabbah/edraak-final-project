@@ -33,41 +33,27 @@
 	</form>
 	<script type="text/javascript">
 
-		const new_name = document.getElementById('new_name');
+		const input = document.getElementById('new_name');
 		const updateForm = document.getElementById('updateForm');
 
 		updateForm.addEventListener('submit', function (e) {
-			var error = '';
-			if (new_name.value == "") {
-				error += "Enter A Name";
-			} else {
-				 @foreach ($main_cats as $item)
+			@if (isset($sub_cats))
 
-				 if (new_name.value == '{{$item->name}}') {
-				 	error += new_name.value + " Already Exists";
-				 }
-
-				 @endforeach
-
-				 @if (isset($sub_cats))
-
-				 @foreach ($sub_cats as $item)
-
-				 if (new_name.value == '{{$item->name}}') {
-				 	error += new_name.value + " Already Exists";
-				 }
-
-				 @endforeach
-
-				 @endif
-			}
-
-			if (error) {
+			@foreach ($sub_cats as $item)
+			if ("<?php echo htmlspecialchars_decode($item->name) ?>" == input.value) {
 				e.preventDefault();
-				alert(error);
-			} else {
-				alert("Updated Successfully");
+				alert('<?php echo htmlspecialchars_decode($item->name) ?> Already Exists');
 			}
+			@endforeach
+
+			@endif
+
+			@foreach ($main_cats as $item)
+			if ("<?php echo htmlspecialchars_decode($item->name) ?>" == input.value) {
+				e.preventDefault();
+				alert('<?php echo htmlspecialchars_decode($item->name) ?> Already Exists');
+			}
+			@endforeach
 
 		});
 

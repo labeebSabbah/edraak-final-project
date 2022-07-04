@@ -53,7 +53,7 @@ if (!isset($admin)) {
 				<ul>
 					@foreach ($items as $item)
 					<?php $totalItems += $item['quantity']; ?>
-					<h3><li>{{$item['name']}}&nbsp x{{$item['quantity']}}&nbsp {{floatval($item['price']) * floatval($item['quantity'])}}$</li></h3>
+					<h3><li>{{$item['name']}}&nbsp&nbsp {{$item['price']}}$&nbsp x{{$item['quantity']}}&nbsp {{floatval($item['price']) * floatval($item['quantity'])}}$</li></h3>
 					@endforeach
 				</ul>
 			</td>

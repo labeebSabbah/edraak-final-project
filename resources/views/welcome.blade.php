@@ -9,14 +9,14 @@ $cart = $_SESSION['cart'] ?? array();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="An Online Store To Some New Clothes."/>
     <link rel="stylesheet" type="text/css" href="./css/app.css">
-    <title>Welcome To Labeeb's E-Commerce</title>
+    <title>Labeeb's E-Commerce</title>
 </head>
 <body style="text-align: center;">
     <header>
         @include ('layouts.navigation')
     </header>
     <main>
-        <h1 style="font-size: 100px">Welcome To Labeeb's E-Commerce</h1>
+        <h1 style="font-size: 100px">Labeeb's E-Commerce</h1>
         <form method="get" action="/search" style="margin-top: 2%">
             <h2 style="font-size: xx-large;">Got Something In Mind</h2><br>  
             <input type="text" name="search" class="w-1/2">

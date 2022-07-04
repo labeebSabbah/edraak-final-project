@@ -1,20 +1,18 @@
-<?php $product = DB::table('products')->where('id', '=', $id);
- $subCats = unserialize($product->sub_categories); ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{$product->name}}</title>
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<title>{{$product[0]->name}}</title>
 </head>
-<body>
-	<h2>{{$product->name}} #{{$product->id}}</h2>
-	<h2>{{$product->description}}</h2>
-	<h2>{{$product->price}}</h2>
-	<img src="./uploads/{{product->image}}">
-	<h2>{{$product->size}}</h2>
-	<h2>{{$product->return_policy}}</h2>
-	<h2>$product->main_category</h2>
-	<h2>@foreach ($subCats as $item) <p>$item</p> @endforeach</h2>
+<body style="text-align:center">
+	@include ('layouts.navigation')
+	<p>{{$product[0]->name}} #{{$product[0]->id}}</p>
+	<p>{{$product[0]->description}}</p>
+	<p>{{$product[0]->price}}</p>
+	<img src="./uploads/{{$product[0]->image}}">
+	<p>{{$product[0]->size}}</p>
+	<p>{{$product[0]->return_policy}}</p>
 </body>
 </html>

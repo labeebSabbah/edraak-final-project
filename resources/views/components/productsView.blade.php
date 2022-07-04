@@ -9,7 +9,8 @@
             src="{{asset('uploads/'.$product->image)}}" style="height: 70%;" />
             <p>{{$product->name}}</p>
             <p>{{$product->price}}</p>
-            <a href="/addItem?id={{$product->id}}&name={{$product->name}}&price={{$product->price}}&image={{$product->image}}"><button type="button">Add To Cart</button></a>
+            <a href="/addItem?id={{$product->id}}&name={{$product->name}}&price={{$product->price}}&image={{$product->image}}"><button type="button" style="margin-right:8px">Add To Cart</button></a>
+            <a href="/details?id={{$product->id}}"><button type="button">More Details</button></a>
         </div>
       </div>
       @endforeach

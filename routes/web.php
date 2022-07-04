@@ -26,6 +26,8 @@ Route::get('/search', [MainController::class, 'search']);
 
 Route::get('/dashboard', [MainController::class, 'redirectHome'])->middleware('auth', 'verified')->name('dashboard');
 
+Route::get('/details', [MainController::class, 'details']);
+
 Route::middleware('auth', 'verified')->group(function () {
 
     Route::get('/addItem', [MainController::class, 'addItem']);

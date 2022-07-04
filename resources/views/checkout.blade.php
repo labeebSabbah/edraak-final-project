@@ -6,31 +6,32 @@
 	<title>Checkout</title>
 	<link rel="stylesheet" type="text/css" href="./css/app.css">
 </head>
-<body>
+<body style="text-align: center;">
+	@include ('layouts.navigation')
 	<form method="POST" action="/checkout/placeOrder">
 		@csrf
 		<div>
-			<label for="address1">Address Line 1</label>
+			<label for="address1">Address Line 1</label><br>
 			<input type="text" name="address1" required>
 		</div>
 		<div class="mt-4">
-			<label for="address2">Address Line 2</label>
+			<label for="address2">Address Line 2</label><br>
 			<input type="text" name="address2">
 		</div>
 		<div class="mt-4">
-			<label for="city">City</label>
+			<label for="city">City</label><br>
 			<input type="text" name="city" required>
 		</div>
 		<div class="mt-4">
-			<label for="state">State</label>
+			<label for="state">State</label><br>
 			<input type="text" name="state">
 		</div>
 		<div class="mt-4">
-			<label for="country">Country</label>
+			<label for="country">Country</label><br>
 			@include ('components.countryInput')
 		</div>
 		<div class="mt-4">
-			<label for="postal">Postal Code</label>
+			<label for="postal">Postal Code</label><br>
 			<input type="number" name="postal" min="0" required>
 		</div>
 		<div class="mt-4">

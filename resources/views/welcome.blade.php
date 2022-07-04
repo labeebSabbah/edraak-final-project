@@ -27,11 +27,7 @@ $cart = $_SESSION['cart'] ?? array();
         @include('components.productsView')
         </div>
     </main>
-    <footer class="bg-gray-200 text-center lg:text-left">
-        <div class="text-gray-700 text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2021 Copyright: Labeeb Sabbah
-        </div>
-    </footer>
+    @include ('components.copyRight')
     <script type="text/javascript" src="./js/app.js"></script>
 </body>
 </html>

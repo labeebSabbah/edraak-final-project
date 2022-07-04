@@ -10,15 +10,35 @@ session_start();
 
 class OrdersController extends Controller
 {
-    public function placeOrder() {
+    public function placeOrder(Request $request) {
         $cart = $_SESSION['cart'];
         $name = Auth::user()->name;
         $numberOfItems = 0;
         $total = 0;
 
+        $address1 = htmlspecialchars($request->address1);
+        $address2 = htmlspecialchars($request->address2);
+        $city = htmlspecialchars($request->city);
+        $state = htmlspecialchars($request->state);
+        $country = $request->country;
+        $postal = $request->postal;
+        $payment = $request->payment;
+
+        $destination = array(
+            $address1,
+            $address2,
+            $city,
+            $state,
+            $country,
+            $postal,
+            $payment
+        );
+
+        $destination = serialize($destination);
+
         foreach ($cart as $item) {
             $numberOfItems += 1 * $item['quantity'];
-            $total = $item['quantity'] * floatval($item['price']);
+            $total += $item['quantity'] * floatval($item['price']);
         }
 
         $status = "Processing";
@@ -29,7 +49,8 @@ class OrdersController extends Controller
             'numberOfItems' => $numberOfItems,
             'items' => serialize($cart),
             'total' => $total,
-            'status' => $status
+            'status' => $status,
+            'destination' => $destination
         ]);
 
         $_SESSION['cart'] = [];

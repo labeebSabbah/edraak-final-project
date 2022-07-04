@@ -11,7 +11,7 @@ class MainController extends Controller
 {
 
     public function redirectHome() {
-        return redirect('orders');
+        return redirect('/orders');
     }
 
     public function all() {
@@ -19,6 +19,11 @@ class MainController extends Controller
             'products' => DB::table('products')->where('is_deleted', '=', false)->paginate(15),
             'mainCats' => DB::select('SELECT * FROM main_categories')
         ]);
+    }
+
+    public function details(Request $request) {
+        $product = DB::table('products')->where('id', $request->id)->get();
+        return view('products.product', ['product' => $product]);
     }
 
     public function addItem(Request $request) {
@@ -47,8 +52,9 @@ class MainController extends Controller
                 $cart[$i]['quantity'] -= 1;
                 if ($cart[$i]['quantity'] == 0) {
                     unset($cart[$i]);
+                    $cart = array_values($cart);
+                    break;
                 }
-                break;
             }
         }
         $_SESSION['cart'] = $cart;

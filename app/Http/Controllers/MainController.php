@@ -60,8 +60,8 @@ class MainController extends Controller
         $subCats = DB::select('SELECT * FROM sub_categories');
         $search_name = $request->input('search') ?? null;
         $search_name = htmlspecialchars($search_name);
-        $mainCat = htmlspecialchars($request->mainCat ?? null);
-        $subCat = htmlspecialchars($request->subCat ?? null);
+        $mainCat = $request->mainCat ?? null;
+        $subCat = $request->subCat ?? null;
         $min = htmlspecialchars($request->input('min') ?? null);
         $max = htmlspecialchars($request->input('max') ?? null);
         $items = DB::table('products')->where('is_deleted', false)->when($search_name, function ($q) use ($search_name) {

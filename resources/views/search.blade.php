@@ -39,7 +39,7 @@
 		<select name="subCat" style="width: 90%;" class="mt-4">
 			<option value="">Sub-Categories</option>
 			@foreach ($subCats as $item)
-			<option value="{{$item->name}}">{{$item->name}}</option>
+			<option value="{{$item->name}}" <?php if ($subCat == $item->name) {echo 'selected';} ?>>{{$item->name}}</option>
 			@endforeach
 		</select>
 	</form>

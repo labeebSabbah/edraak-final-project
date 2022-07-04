@@ -23,7 +23,7 @@
 		<p>Size:- {{$product[0]->size}}</p>
 		<p>Return Policy:- {{$product[0]->return_policy}}</p>
         <div style="margin-top: 40px">
-        	<a href="/addItem?id={{$product[0]->id}}&name={{$product[0]->name}}&price={{$product[0]->price}}&image={{$product[0]->image}}"><button type="button" style= "background-color: #06283D;">Add To Cart</button></a>
+        	<a href="/addItem?id={{$product[0]->id}}&name={{$product[0]->name}}&price={{$product[0]->price}}&image={{$product[0]->image}}&size={{$product[0]->size}}"><button type="button" style= "background-color: #06283D;">Add To Cart</button></a>
         </div>
 	</div>
 </body>

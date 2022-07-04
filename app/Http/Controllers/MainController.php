@@ -39,7 +39,7 @@ class MainController extends Controller
         }
         }
         if (!$in_cart) {
-            $cart[] = ['id'=>$request->id,'name'=>$request->name,'price'=>$request->price,'image'=>$request->image,'quantity'=>1];
+            $cart[] = ['id'=>$request->id,'name'=>$request->name,'price'=>$request->price,'image'=>$request->image,'quantity'=>1, 'size' => $request->size];
         }
         $_SESSION['cart'] = $cart;
         return redirect('/');

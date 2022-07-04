@@ -15,14 +15,10 @@ class ProductsController extends Controller
 
     public function create(Request $request) {
         $name = $request->input('name');
-        $name = htmlspecialchars($name);
         $desc = $request->input('desc');
-        $desc = htmlspecialchars($desc);
         $price = $request->input('price');
-        $price = htmlspecialchars($price);
         $size = $request->input('size');
         $return = $request->input('return');
-        $return = htmlspecialchars($return);
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();

@@ -50,6 +50,13 @@
 			<option value="{{$item->name}}" <?php if ($subCat == $item->name) {echo 'selected';} ?>>{{$item->name}}</option>
 			@endforeach
 		</select>
+		<label for="size">Size</label>
+		<select name="size" style="width: 90%" class="mt-4">
+			<option value="">Size</option>
+			@foreach (array('S','M','L','XL','XXL') as $item)
+			<option value="{{$item}}" <?php if ($size == $item) {echo 'selected';} ?>>{{$item}}</option>
+			@endforeach
+		</select>
 	</form>
 	@if (count($products) != 0)
 	<div style="width: 80%; margin-left: 20%;">@include('components.productsView')</div>

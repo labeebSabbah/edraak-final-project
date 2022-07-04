@@ -70,6 +70,7 @@ class MainController extends Controller
         $subCat = $request->subCat ?? null;
         $min = htmlspecialchars($request->input('min') ?? null);
         $max = htmlspecialchars($request->input('max') ?? null);
+        $size = $request->size ?? null;
         $items = DB::table('products')->where('is_deleted', false)->when($search_name, function ($q) use ($search_name) {
             return $q->where('name', 'like', '%' . $search_name . '%');
         })->when($mainCat, function ($q) use ($mainCat) {
@@ -80,6 +81,8 @@ class MainController extends Controller
             return $q->where('price', '>=', $min);
         })->when($max, function ($q) use ($max) {
             return $q->where('price', '<=' ,$max);
+        })->when($size, function ($q) use ($size) {
+            return $q->where('size',$size);
         })->paginate(15);
         return view('search', ['products' => $items,
          'search' => $search_name,
@@ -88,7 +91,8 @@ class MainController extends Controller
          'min' => $min,
          'max' => $max,
          'subCats' => $subCats,
-         'subCat' => $subCat
+         'subCat' => $subCat,
+         'size' => $size
      ]);
     }
 

@@ -1,3 +1,7 @@
+<?php 
+use Illuminate\Support\Facades\DB;
+$mainCats = DB::select('SELECT * From main_categories');
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,5 +27,17 @@
 			<button class="w-full bg-red-600 py-3" onclick="history.back()">Cancel</button>
 		</div>
 	</form>
+	<script type="text/javascript">
+		const createForm = document.getElementById('createForm');
+		const input = document.getElementById('name');
+		createForm.addEventListener('submit',function (e) {
+			@foreach ($mainCats as $item)
+			if ("<?php echo htmlspecialchars_decode($item->name) ?>" == input.value) {
+				e.preventDefault();
+				alert('<?php echo htmlspecialchars_decode($item->name) ?> Already Exists');
+			}
+			@endforeach
+		});
+	</script>
 </body>
 </html>

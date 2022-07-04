@@ -7,7 +7,7 @@
         <div class="w-full p-1 md:p-2">
           <img class="block object-cover object-center w-full rounded-lg"
             src="{{asset('uploads/'.$product->image)}}" style="height: 70%;" />
-            <span>{{$product->name}}</span>
+            <span>{{htmlspecialchars_decode($product->name)}}</span>
             <span>{{$product->price}}$</span>
             <br>
             <a href="/addItem?id={{$product->id}}&name={{$product->name}}&price={{$product->price}}&image={{$product->image}}&size={{$product->size}}"><button type="button" style="margin-right:8px; background-color: #06283D; border: 2px solid #06283D;">Add To Cart</button></a>

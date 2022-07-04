@@ -16,8 +16,8 @@
 <body style="text-align:center; font-size: x-large;" bgcolor="#1363DF">
 	@include ('layouts.navigation')
 	<img src="./uploads/{{$product[0]->image}}" width="300px" height="300px" style="position: absolute; left: 90px; top: 120px; border-radius: 5px;">
-	<div style="margin: 0 auto;margin-top: 90px; width: 50%">
-		<p style="font-size: xx-large; margin-bottom: 10px">Name:- {{$product[0]->name}} #{{$product[0]->id}}</p>
+	<div style="margin: 0 auto;margin-top: 90px; width: 40%">
+		<p style="font-size: xx-large; margin-bottom: 10px">Name:- {{htmlspecialchars_decode($product[0]->name)}} #{{$product[0]->id}}</p>
 		<p>Description:- {{$product[0]->description}}</p>
 		<p>Price:- {{$product[0]->price}}</p>
 		<p>Size:- {{$product[0]->size}}</p>

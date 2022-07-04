@@ -49,7 +49,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('logout')"
+                            <x-dropdown-link :href="route('logout')" class="text-gray-700"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
@@ -58,8 +58,8 @@
                     </x-slot>
                     @else
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('login')">{{ __('Login') }}</x-dropdown-link>
-                        <x-dropdown-link :href="route('register')">{{ __('Register') }}</x-dropdown-link>
+                        <x-dropdown-link :href="route('login')" class="text-gray-700">{{ __('Login') }}</x-dropdown-link>
+                        <x-dropdown-link :href="route('register')" class="text-gray-700">{{ __('Register') }}</x-dropdown-link>
                     </x-slot>
                     @endif
                 </x-dropdown>

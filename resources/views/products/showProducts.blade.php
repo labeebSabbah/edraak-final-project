@@ -16,7 +16,7 @@
     			@foreach ($products as $product)
     			<li class="px-6 py-2 border-b border-gray-200 w-full">
     				<img src="{{asset('uploads/'.$product->image)}}" style="display: inline;" width="50px" height="50px" >
-    				<span style="margin-left: 20px;">{{$product->name}}</span>
+    				<span style="margin-left: 20px;">{{htmlspecialchars_decode($product->name)}}</span>
     				<span style="float: right; margin-top: 10px;">
     					<a href="/updateProd/{{$product->id}}"><button type="button">Update</button></a>
     					<button type="submit" name="id" value="{{$product->id}}">Delete</button>

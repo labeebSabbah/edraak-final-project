@@ -1,7 +1,7 @@
 <?php 
 use Illuminate\Support\Facades\Auth;
 
-if (Auth::user()->name != $order->customerName) {
+if ((Auth::user()->name != $order->customerName) && (!Auth::user()->is_admin)) {
 	header("Location: https://edraak-final-project.herokuapp.com/myOrders");
 	exit();
 }

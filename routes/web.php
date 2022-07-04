@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Middleware\Adminstration;
+use App\Http\Middleware\Owner;
 
 /*
 |--------------------------------------------------------------------------

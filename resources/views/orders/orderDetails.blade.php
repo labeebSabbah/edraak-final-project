@@ -1,4 +1,12 @@
-<?php if (!isset($admin)) {
+<?php 
+use Illuminate\Support\Facades\Auth;
+
+if (Auth::user()->name != $order->customerName) {
+	header("Location: https://edraak-final-project.herokuapp.com/myOrders");
+	exit();
+}
+
+if (!isset($admin)) {
 	$admin = false;
 } ?>
 <!DOCTYPE html>

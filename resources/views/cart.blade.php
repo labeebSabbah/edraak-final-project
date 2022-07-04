@@ -32,12 +32,12 @@ $total = 0;
 	@else
 		<table border="1px solid black" style="margin: auto; background: #47B5FF; border-radius: 7px;">
 			<tr>
-				<th>ID</th><th>Name</th><th>Price</th><th>Quantity</th><th>Total</th><th></th>
+				<th>ID</th><th>Photo</th><th>Name</th><th>Price</th><th>Quantity</th><th>Total</th><th></th>
 			</tr>
 			@foreach ($cart as $item)
 			<?php $total += $item['quantity'] * floatval($item['price']); ?>
 			<tr>
-				<td>{{$item['id']}}</td><td>{{$item['name']}}</td><td>{{$item['price']}}$</td>
+				<td>{{$item['id']}}</td><td><img src="{{asset('uploads/'.$item['image'])}}" width="50px" height="50px"></td><td>{{$item['name']}}</td><td>{{$item['price']}}$</td>
 				<td>{{$item['quantity']}}</td><td>{{$item['quantity'] * floatval($item['price'])}}$</td>
 				<td><a href="/removeItem?id={{$item['id']}}"><button type="button">Remove From Cart</button></a></td>
 			</tr>

@@ -59,7 +59,7 @@
 			<input type="checkbox" name="subCats[]" value="{{$item->name}}" <?php 
 				if (isset($product)) {
 					$catArr = unserialize($product[0]->sub_categories);
-					if (!is_null($product[0]->sub_categories)) {
+					if (!is_null($catArr)) {
 						foreach ($catArr as $value) {
 							if ($value == $item->name) {
 								echo "checked";

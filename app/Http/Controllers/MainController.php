@@ -16,7 +16,7 @@ class MainController extends Controller
 
     public function all() {
         return view('welcome', [
-            'products' => DB::table('products')->where('is_deleted', '=', false)->paginate(15),
+            'products' => DB::table('products')->where('is_deleted', '=', false)->simplePaginate(15),
             'mainCats' => DB::select('SELECT * FROM main_categories')
         ]);
     }
@@ -83,7 +83,7 @@ class MainController extends Controller
             return $q->where('price', '<=' ,$max);
         })->when($size, function ($q) use ($size) {
             return $q->where('size',$size);
-        })->paginate(15);
+        })->simplePaginate(15);
         return view('search', ['products' => $items,
          'search' => $search_name,
          'mainCats' => $mainCats,

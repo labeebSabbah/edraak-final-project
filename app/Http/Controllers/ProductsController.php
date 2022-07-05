@@ -10,7 +10,7 @@ class ProductsController extends Controller
 {
 
     public function show() {
-        return view('products.showProducts', ['products' => DB::table('products')->where('is_deleted', '=' , false)->paginate(15)]);
+        return view('products.showProducts', ['products' => DB::table('products')->where('is_deleted', '=' , false)->simplePaginate(15)]);
     }
 
     public function create(Request $request) {

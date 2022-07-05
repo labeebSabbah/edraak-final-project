@@ -18,5 +18,5 @@
     </div>
   </div>
 </section>
-{{$products->links()}}
+<div style="position: sticky;">{{$products->links()}}</div>
     </div>

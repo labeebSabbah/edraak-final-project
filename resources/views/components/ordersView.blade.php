@@ -21,5 +21,7 @@
     			</a>
     			@endforeach
   			</ul>
-  		{{ $orders->links() }}
+  			<div style="position: sticky;">
+  				{{ $orders->links() }}
+  			</div>
 	</div>

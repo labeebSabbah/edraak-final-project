@@ -73,7 +73,6 @@ if (!isset($admin)) {
 				<form method="get" action="/updateStatus" id="updateForm">
 					<label for="status">Update Status</label>
 					<select name="status" id="status">
-						<option selected></option>
 						<option value="Processing">Processing</option>
 						<option value="Shipped">Shipped</option>
 						<option value="Delivered">Delivered</option>

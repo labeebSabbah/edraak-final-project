@@ -54,7 +54,14 @@
 		</div>
 
 		<div class="mt-4">
-			@foreach ($subCats as $item)
+			<?php $printed = 0; ?>
+			@for ($i = 0; $i < count($subCats); $i++)
+			@for ($j = $subCats[$i]; $j >= 0; $j--)
+			if ($subCats[$i]->name == $subCats[$j])
+			<?php $printed = 1; break; ?>
+			@endif
+			@endfor
+			@if (!$printed)
 			<label for="subCats[]">{{$item->name}}</label>
 			<input type="checkbox" name="subCats[]" value="{{$item->name}}" <?php 
 				if (isset($product)) {
@@ -68,7 +75,8 @@
 					}
 				}
 		?>>
-			@endforeach
+			@endif
+			@endfor
 		</div>
 		<div class="mt-4">
 			<button type="submit" name="id" class="w-full bg-green-500 py-3" <?php if (isset($product)) {echo "value='{$product[0]->id}'";} ?> >@if (!isset($product)) Add Product @else Update Product @endif</button><br>

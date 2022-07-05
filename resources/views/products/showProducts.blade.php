@@ -30,7 +30,9 @@
     			@endforeach
     			</form>
   			</ul>
-  		{{ $products->links() }}
+  			<div style="position: sticky;">
+  				{{ $products->links() }}
+  			</div>
 	</div>
 
 	<script type="text/javascript" src="./js/confirm.js"></script>

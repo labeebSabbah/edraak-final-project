@@ -1,3 +1,6 @@
+<?php 
+use Illuminate\Support\Facades\DB;
+$subCats = DB::select('SELECT * FROM sub_categories') ?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -57,8 +57,9 @@ $subCats = DB::select('SELECT * FROM sub_categories') ?>
 		</div>
 
 		<div class="mt-4">
-			<?php $printed = 0; $names = array(); ?>
+			<?php $names = array(); ?>
 			@foreach ($subCats as $item)
+			<?php $printed = 0; ?>
 			@foreach ($names as $name)
 			@if ($item->name == $name)
 			<?php $printed = 1; break; ?>
@@ -78,7 +79,7 @@ $subCats = DB::select('SELECT * FROM sub_categories') ?>
 					}
 				}
 		?>>
-			<?php $names[] = $item->name ?>
+			<?php $names[] = $item->name; ?>
 			@endif
 			@endforeach
 		</div>

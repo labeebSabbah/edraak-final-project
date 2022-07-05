@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html style="height: 100%;">
 <head>
@@ -5,21 +6,28 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Products</title>
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<style type="text/css">
+		button {
+			padding: 6px;
+			border: 2px solid #06283D;
+			color: #DFF6FF;
+		}
+	</style>
 </head>
 <body bgcolor="#1363DF">
 
 	@include('components.admin-nav')
 	<div class="flex justify-center">
   			<ul class="rounded-lg border border-gray-200 text-gray-900 " style="width: 75%; margin-left: 15em; background: #47B5FF;">
-  				<li class="px-6 py-2 border-b border-gray-200 w-full"><a href="/createProd"><button>Add</button></a></li>
+  				<li class="px-6 py-2 border-b border-gray-200 w-full"><a href="/createProd" style= "background-color: #06283D;"><button>Add</button></a></li>
   				<form method="get" action="/deleteProd" id="deleteForm">
     			@foreach ($products as $product)
     			<li class="px-6 py-2 border-b border-gray-200 w-full">
     				<img src="{{asset('uploads/'.$product->image)}}" style="display: inline;" width="50px" height="50px" >
     				<span style="margin-left: 20px;">{{htmlspecialchars_decode($product->name)}}</span>
     				<span style="float: right; margin-top: 10px;">
-    					<a href="/updateProd/{{$product->id}}"><button type="button">Update</button></a>
-    					<button type="submit" name="id" value="{{$product->id}}">Delete</button>
+    					<a href="/updateProd/{{$product->id}}"><button type="button" style= "background-color: #06283D;">Update</button></a>
+    					<button type="submit" name="id" value="{{$product->id}}" style= "background-color: #06283D;">Delete</button>
     				</span>
     			</li>
     			@endforeach

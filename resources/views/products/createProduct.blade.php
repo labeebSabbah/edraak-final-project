@@ -57,7 +57,7 @@
 			<?php $printed = 0; ?>
 			@for ($i = 0; $i < count($subCats); $i++)
 			@for ($j = $subCats[$i]; $j >= 0; $j--)
-			if ($subCats[$i]->name == $subCats[$j])
+			@if ($subCats[$i]->name == $subCats[$j])
 			<?php $printed = 1; break; ?>
 			@endif
 			@endfor

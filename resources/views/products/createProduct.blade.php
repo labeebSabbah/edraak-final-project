@@ -54,29 +54,30 @@
 		</div>
 
 		<div class="mt-4">
-			<?php $printed = 0; ?>
-			@for ($i = 0; $i < count($subCats); $i++)
-			@for ($j = $subCats[$i]; $j >= 0; $j--)
-			@if ($subCats[$i]->name == $subCats[$j])
+			<?php $printed = 0; $names = array(); ?>
+			@foreach ($subCats as $item)
+			@foreach ($names as $name)
+			@if ($item->name == $name)
 			<?php $printed = 1; break; ?>
 			@endif
-			@endfor
+			@endforeach
 			@if (!$printed)
 			<label for="subCats[]">{{$item->name}}</label>
-			<input type="checkbox" name="subCats[]" value="{{$subCats[$i]->name}}" <?php 
+			<input type="checkbox" name="subCats[]" value="{{$$item->name}}" <?php 
 				if (isset($product)) {
 					$catArr = unserialize($product[0]->sub_categories);
 					if (!is_null($catArr)) {
 						foreach ($catArr as $value) {
-							if ($value == $subCats[$i]->name) {
+							if ($value == $item->name) {
 								echo "checked";
 							}
 						}
 					}
 				}
 		?>>
+			<?php $names[] = $item->name ?>
 			@endif
-			@endfor
+			@endforeach
 		</div>
 		<div class="mt-4">
 			<button type="submit" name="id" class="w-full bg-green-500 py-3" <?php if (isset($product)) {echo "value='{$product[0]->id}'";} ?> >@if (!isset($product)) Add Product @else Update Product @endif</button><br>

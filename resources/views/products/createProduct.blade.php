@@ -63,7 +63,7 @@
 			@endforeach
 			@if (!$printed)
 			<label for="subCats[]">{{$item->name}}</label>
-			<input type="checkbox" name="subCats[]" value="{{$$item->name}}" <?php 
+			<input type="checkbox" name="subCats[]" value="{{$item->name}}" <?php 
 				if (isset($product)) {
 					$catArr = unserialize($product[0]->sub_categories);
 					if (!is_null($catArr)) {

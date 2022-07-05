@@ -46,8 +46,18 @@
 		<label for="subCat">Sub-Category:-</label>
 		<select name="subCat" style="width: 90%;" class="mt-4">
 			<option value="">Sub-Categories</option>
+			<?php $names = array(); ?>
 			@foreach ($subCats as $item)
+			<?php $printed = 0; ?>
+			@foreach ($names as $name)
+			@if ($item->name == $name)
+			<?php $printed = 1; break; ?>
+			@endif
+			@endforeach
+			@if (!$printed)
 			<option value="{{$item->name}}" <?php if ($subCat == $item->name) {echo 'selected';} ?>>{{$item->name}}</option>
+			<?php $names[] = $item->name; ?>
+			@endif
 			@endforeach
 		</select>
 		<label for="size">Size</label>

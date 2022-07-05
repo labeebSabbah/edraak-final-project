@@ -27,6 +27,7 @@ class MainController extends Controller
     }
 
     public function addItem(Request $request) {
+        $product = DB::table('product')->where('id', $request->id)->get();
         $cart = $_SESSION['cart'] ?? array();
         $in_cart = 0;
         if (count($cart) == 0) {} else {
@@ -39,7 +40,7 @@ class MainController extends Controller
         }
         }
         if (!$in_cart) {
-            $cart[] = ['id'=>$request->id,'name'=>$request->name,'price'=>$request->price,'image'=>$request->image,'quantity'=>1, 'size' => $request->size];
+            $cart[] = ['id'=>$request->id,'name'=>$product[0]->name,'price'=>$product[0]->price,'image'=>$product[0]->image,'quantity'=>1, 'size' => $product[0]->size];
         }
         $_SESSION['cart'] = $cart;
         return redirect('/');

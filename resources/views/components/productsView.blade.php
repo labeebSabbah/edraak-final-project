@@ -10,7 +10,7 @@
             <span>{{htmlspecialchars_decode($product->name)}}</span>
             <span>{{$product->price}}$</span>
             <br>
-            <a href="/addItem?id={{$product->id}}&name={{$product->name}}&price={{$product->price}}&image={{$product->image}}&size={{$product->size}}"><button type="button" style="margin-right:8px; background-color: #06283D; border: 2px solid #06283D;">Add To Cart</button></a>
+            <a href="/addItem?id={{$product->id}}"><button type="button" style="margin-right:8px; background-color: #06283D; border: 2px solid #06283D;">Add To Cart</button></a>
             <a href="/details?id={{$product->id}}"><button type="button" style="background-color: #06283D; border: 2px solid #06283D;">More Details</button></a>
         </div>
       </div>

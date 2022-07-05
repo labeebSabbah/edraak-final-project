@@ -37,7 +37,7 @@ $total = 0;
 			@foreach ($cart as $item)
 			<?php $total += $item['quantity'] * floatval($item['price']); ?>
 			<tr>
-				<td>{{$item['id']}}</td><td><img src="{{asset('uploads/'.$item['image'])}}" width="50px" height="50px"></td><td>{{$item['name']}}</td><td>{{$item['price']}}$</td>
+				<td>{{$item['id']}}</td><td><img src="{{asset('uploads/'.$item['image'])}}" width="50px" height="50px"></td><td>{{htmlspecialchars_decode($item['name'])}}</td><td>{{$item['price']}}$</td>
 				<td>{{$item['quantity']}}</td><td>{{$item['quantity'] * floatval($item['price'])}}$</td><td>{{$item['size']}}</td>
 				<td><a href="/removeItem?id={{$item['id']}}"><button type="button">Remove From Cart</button></a></td>
 			</tr>

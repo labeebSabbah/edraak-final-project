@@ -27,7 +27,7 @@ class MainController extends Controller
     }
 
     public function addItem(Request $request) {
-        $product = DB::table('product')->where('id', $request->id)->get();
+        $product = DB::table('products')->where('id', $request->id)->get();
         $cart = $_SESSION['cart'] ?? array();
         $in_cart = 0;
         if (count($cart) == 0) {} else {

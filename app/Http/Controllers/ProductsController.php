@@ -25,7 +25,7 @@ class ProductsController extends Controller
         $return = htmlspecialchars($return);
         if ($request->file('image')) {
             $file = $request->file('image');
-            $filename= date('YmdHi').$file->getClientOriginalName();
+            $filename= $file->getClientOriginalName();
             $file->move('uploads', $filename);
         } else {
             $filename = "No Image";
